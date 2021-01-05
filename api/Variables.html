@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>变量 | Sass中文文档</title>
+    <meta name="description" content="Sass是世界上最成熟、稳定、强大的专业级CSS扩展语言">
+    <meta name="keywords" content="Sass,Sass教程,Sass中国,Sass中文,Sass文档,SCSS,SCSS教程,SCSS中国,SCSS中文,SCSS文档,CSS预处理">
+  <link rel="icon" href="/images/favicon.ico" preload="true" as="image">
+    
+    <link rel="preload" href="/assets/css/0.styles.f50bc863.css" as="style"><link rel="preload" href="/assets/js/app.be7218e5.js" as="script"><link rel="preload" href="/assets/js/vendors~layout-layout.ad69256e.js" as="script"><link rel="preload" href="/assets/js/layout-layout.6d559a4d.js" as="script"><link rel="preload" href="/assets/js/page-api-variables.a0563f17.js" as="script"><link rel="preload" href="/assets/js/95.c540d740.js" as="script"><link rel="preload" href="/assets/js/99.25118691.js" as="script">
+    <link rel="stylesheet" href="/assets/css/0.styles.f50bc863.css">
+    <meta name="baidu-site-verification" content="HISWYjeJhP">
+    <meta name="google-site-verification" content="o-XFzkWKa1fqZMPS6L8cuu7-UCoqTSWKhk-tZAdIW9E">
+    <script>var _hmt = _hmt || []; (function () { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?0e27eeb01c53bbd49dcc535da62d57ac"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s) })();</script>
+</head>
+
+<body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Sass中文文档</span></a> <section data-v-3a3eb35e><span data-v-3a3eb35e>|</span> <a class="el-link el-link--primary" data-v-3a3eb35e><!----><span class="el-link--inner">关闭广告</span><!----></a></section> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/install/" class="nav-link">安装</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习指南</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learn/Preprocessing.html" class="nav-link">预处理</a></li><li class="dropdown-item"><!----> <a href="/learn/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/learn/Nesting.html" class="nav-link">嵌套规则</a></li><li class="dropdown-item"><!----> <a href="/learn/Partials.html" class="nav-link">片段文件</a></li><li class="dropdown-item"><!----> <a href="/learn/Import.html" class="nav-link">文件导入</a></li><li class="dropdown-item"><!----> <a href="/learn/Mixins.html" class="nav-link">混合器</a></li><li class="dropdown-item"><!----> <a href="/learn/Extend.html" class="nav-link">扩展和继承</a></li><li class="dropdown-item"><!----> <a href="/learn/Operators.html" class="nav-link">操作符</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/api/Syntax/" class="nav-link">语法</a></li><li class="dropdown-item"><!----> <a href="/api/StyleRules/" class="nav-link">样式规则</a></li><li class="dropdown-item"><!----> <a href="/api/Variables.html" class="nav-link router-link-exact-active router-link-active">变量</a></li><li class="dropdown-item"><!----> <a href="/api/Interpolation.html" class="nav-link">插值</a></li><li class="dropdown-item"><!----> <a href="/api/AtRules/" class="nav-link">AtRules</a></li><li class="dropdown-item"><!----> <a href="/api/Values/" class="nav-link">值类型</a></li><li class="dropdown-item"><!----> <a href="/api/Operators/" class="nav-link">操作符</a></li><li class="dropdown-item"><!----> <a href="/api/Modules/" class="nav-link">内置模块</a></li><li class="dropdown-item"><!----> <a href="/api/BreakChanges/" class="nav-link">突破性更改</a></li><li class="dropdown-item"><!----> <a href="/api/CommandLine/" class="nav-link">命令行</a></li><li class="dropdown-item"><!----> <a href="/api/JsApi/" class="nav-link">JavaScript API</a></li></ul></div></div><div class="nav-item"><a href="https://sass-lang.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  英文官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/Contact.html" class="nav-link">Contact</a></div> <a href="https://github.com/zongyang/sass-cn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/install/" class="nav-link">安装</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习指南</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learn/Preprocessing.html" class="nav-link">预处理</a></li><li class="dropdown-item"><!----> <a href="/learn/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/learn/Nesting.html" class="nav-link">嵌套规则</a></li><li class="dropdown-item"><!----> <a href="/learn/Partials.html" class="nav-link">片段文件</a></li><li class="dropdown-item"><!----> <a href="/learn/Import.html" class="nav-link">文件导入</a></li><li class="dropdown-item"><!----> <a href="/learn/Mixins.html" class="nav-link">混合器</a></li><li class="dropdown-item"><!----> <a href="/learn/Extend.html" class="nav-link">扩展和继承</a></li><li class="dropdown-item"><!----> <a href="/learn/Operators.html" class="nav-link">操作符</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/api/Syntax/" class="nav-link">语法</a></li><li class="dropdown-item"><!----> <a href="/api/StyleRules/" class="nav-link">样式规则</a></li><li class="dropdown-item"><!----> <a href="/api/Variables.html" class="nav-link router-link-exact-active router-link-active">变量</a></li><li class="dropdown-item"><!----> <a href="/api/Interpolation.html" class="nav-link">插值</a></li><li class="dropdown-item"><!----> <a href="/api/AtRules/" class="nav-link">AtRules</a></li><li class="dropdown-item"><!----> <a href="/api/Values/" class="nav-link">值类型</a></li><li class="dropdown-item"><!----> <a href="/api/Operators/" class="nav-link">操作符</a></li><li class="dropdown-item"><!----> <a href="/api/Modules/" class="nav-link">内置模块</a></li><li class="dropdown-item"><!----> <a href="/api/BreakChanges/" class="nav-link">突破性更改</a></li><li class="dropdown-item"><!----> <a href="/api/CommandLine/" class="nav-link">命令行</a></li><li class="dropdown-item"><!----> <a href="/api/JsApi/" class="nav-link">JavaScript API</a></li></ul></div></div><div class="nav-item"><a href="https://sass-lang.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  英文官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/Contact.html" class="nav-link">Contact</a></div> <a href="https://github.com/zongyang/sass-cn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/install/" class="sidebar-link">安装</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>学习指南</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/learn/" class="sidebar-link">基础知识</a></li><li><a href="/learn/Preprocessing.html" class="sidebar-link">预处理</a></li><li><a href="/learn/Variables.html" class="sidebar-link">变量</a></li><li><a href="/learn/Nesting.html" class="sidebar-link">嵌套规则</a></li><li><a href="/learn/Partials.html" class="sidebar-link">片段文件</a></li><li><a href="/learn/Import.html" class="sidebar-link">文件导入</a></li><li><a href="/learn/Mixins.html" class="sidebar-link">混合器</a></li><li><a href="/learn/Extend.html" class="sidebar-link">扩展与继承</a></li><li><a href="/learn/Operators.html" class="sidebar-link">操作符</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>文档</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/api/" class="sidebar-link">综述</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>语法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>样式规则</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/api/Variables.html" class="active sidebar-link">变量</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/api/Variables.html#默认变量" class="sidebar-link">默认变量</a></li><li class="sidebar-sub-header"><a href="/api/Variables.html#作用域" class="sidebar-link">作用域</a></li><li class="sidebar-sub-header"><a href="/api/Variables.html#变量函数" class="sidebar-link">变量函数</a></li></ul></li><li><a href="/api/Interpolation.html" class="sidebar-link">插值</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>@规则</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>值类型</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>操作符</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>内置模块</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>突破性更改</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>命令行</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>JavaScript API</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="变量"><a href="#变量" aria-hidden="true" class="header-anchor">#</a> 变量</h1> <div><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins data-ad-client="ca-pub-6227283216337087" data-ad-slot="6731084211" class="adsbygoogle" style="display:inline-block;width:600px;height:90px"></ins> <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script></div> <p>Sass变量很简单：将值赋给以<code>$</code>开头的名称，然后可以引用该名称而不是值本身。尽管它们很简单，但它们是Sass带来的最有用的工具之一。变量可以减少重复、执行复杂的数学运算、样式库的配置等等。</p> <p>变量声明看起来很像<a href="/api/StyleRules/PropertyDeclarations.html">属性声明</a>：它写的是<code>&lt;variable&gt;: &lt;expression&gt;</code>。与只能在样式规则或at-rule中声明的属性不同，变量可以在任何需要的地方声明。要使用变量，只需将它包含在一个值中。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$base-color</span></span><span class="token punctuation">:</span> #c6538c<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$border-dark</span></span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token variable">$base-color</span><span class="token punctuation">,</span> 0.88<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token selector">.alert </span><span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid <span class="token variable">$border-dark</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token variable-line"><span class="token variable">$base-color</span><span class="token punctuation">:</span> #c6538c</span>
+<span class="token variable-line"><span class="token variable">$border-dark</span><span class="token punctuation">:</span> rgba(<span class="token variable">$base-color</span>, 0.88)</span>
+
+<span class="token selector">.alert</span>
+<span class="token property-line">  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid <span class="token variable">$border-dark</span></span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.alert</span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid <span class="token function">rgba</span><span class="token punctuation">(</span>198<span class="token punctuation">,</span> 83<span class="token punctuation">,</span> 140<span class="token punctuation">,</span> 0.88<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <div class="warning custom-block"><p>CSS有它自己的<a href="/api/StyleRules/PropertyDeclarations.html#常用声明">变量</a>，这些变量与Sass变量完全不同。已知的差异!</p> <ul><li>Sass变量会被编译，CSS变量包含在CSS输出中。</li> <li>CSS变量可以对不同的元素有不同的值，但是Sass变量一次只有一个值。</li> <li>Sass变量是命令式的，这意味着如果您使用一个变量，然后更改它的值，那么前面的使用将保持不变。CSS变量是声明性的，这意味着如果您更改值，它将影响早期使用和后期使用。</li></ul></div> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$variable</span></span><span class="token punctuation">:</span> value 1<span class="token punctuation">;</span>
+<span class="token selector">.rule-1 </span><span class="token punctuation">{</span>
+  <span class="token property">value</span><span class="token punctuation">:</span> <span class="token variable">$variable</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token property"><span class="token variable">$variable</span></span><span class="token punctuation">:</span> value 2<span class="token punctuation">;</span>
+<span class="token selector">.rule-2 </span><span class="token punctuation">{</span>
+  <span class="token property">value</span><span class="token punctuation">:</span> <span class="token variable">$variable</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token variable-line"><span class="token variable">$variable</span><span class="token punctuation">:</span> value 1</span>
+<span class="token selector">.rule-1</span>
+<span class="token property-line">  <span class="token property">value</span><span class="token punctuation">:</span> <span class="token variable">$variable</span></span>
+
+
+<span class="token variable-line"><span class="token variable">$variable</span><span class="token punctuation">:</span> value 2</span>
+<span class="token selector">.rule-2</span>
+<span class="token property-line">  <span class="token property">value</span><span class="token punctuation">:</span> <span class="token variable">$variable</span></span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.rule-1</span> <span class="token punctuation">{</span>
+  <span class="token property">value</span><span class="token punctuation">:</span> value 1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.rule-2</span> <span class="token punctuation">{</span>
+  <span class="token property">value</span><span class="token punctuation">:</span> value 2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <div class="tip custom-block"><p>与所有Sass标识符一样，Sass变量将连字符和下划线视为相同的。这意味着<code>$font-size</code>和<code>$font_size</code>都引用同一个变量。这是Sass早期的历史遗留问题，当时它只允许在标识符名称中使用下划线。一旦Sass添加了对连字符的支持来匹配CSS的语法，这两种方法就等价了，从而使迁移更加容易。</p></div> <h2 id="默认变量"><a href="#默认变量" aria-hidden="true" class="header-anchor">#</a> 默认变量</h2> <p>通常，当您为变量赋值时，如果该变量已经有值，则会覆盖其旧值。但是，如果您正在编写一个Sass库，您可能希望允许用户在使用库的变量生成CSS之前定制它们。</p> <p>为此，Sass提供了<code>!default</code>标志。只有在变量未定义或其值为空时，才会将值赋给该变量。否则，将使用现有值。这样，用户可以在导入库之前设置变量，以定制库的行为。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token comment">// _library.scss</span>
+<span class="token property"><span class="token variable">$black</span></span><span class="token punctuation">:</span> #000 <span class="token statement keyword">!default</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$border-radius</span></span><span class="token punctuation">:</span> 0.25rem <span class="token statement keyword">!default</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$box-shadow</span></span><span class="token punctuation">:</span> 0 0.5rem 1rem <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token variable">$black</span><span class="token punctuation">,</span> 0.15<span class="token punctuation">)</span> <span class="token statement keyword">!default</span><span class="token punctuation">;</span>
+
+<span class="token selector">code </span><span class="token punctuation">{</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token variable">$border-radius</span><span class="token punctuation">;</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token variable">$box-shadow</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token comment">// style.scss</span>
+<span class="token property"><span class="token variable">$black</span></span><span class="token punctuation">:</span> #222<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$border-radius</span></span><span class="token punctuation">:</span> 0.1rem<span class="token punctuation">;</span>
+
+<span class="token keyword">@import</span> <span class="token string">'library'</span><span class="token punctuation">;</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token comment">// _library.sass</span>
+<span class="token variable-line"><span class="token variable">$black</span><span class="token punctuation">:</span> #000 !default</span>
+<span class="token variable-line"><span class="token variable">$border-radius</span><span class="token punctuation">:</span> 0.25rem !default</span>
+<span class="token variable-line"><span class="token variable">$box-shadow</span><span class="token punctuation">:</span> 0 0.5rem 1rem rgba(<span class="token variable">$black</span>, 0.15) !default</span>
+
+<span class="token selector">code</span>
+<span class="token property-line">  <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token variable">$border-radius</span></span>
+<span class="token property-line">  <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token variable">$box-shadow</span></span>
+</code></pre></div><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token comment">// style.sass</span>
+<span class="token variable-line"><span class="token variable">$black</span><span class="token punctuation">:</span> #222</span>
+<span class="token variable-line"><span class="token variable">$border-radius</span><span class="token punctuation">:</span> 0.1rem</span>
+
+<span class="token atrule-line"><span class="token atrule">@import</span> 'library'</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">code</span> <span class="token punctuation">{</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 0.1rem<span class="token punctuation">;</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 0.5rem 1rem <span class="token function">rgba</span><span class="token punctuation">(</span>#222<span class="token punctuation">,</span> 0.15<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <h2 id="作用域"><a href="#作用域" aria-hidden="true" class="header-anchor">#</a> 作用域</h2> <p>样式表顶层声明的变量是全局的。这意味着全局变量在声明以后可以在任何地方使用 - 即使是在另一个样式表中！但这并不适用于所有的变量。在块中声明的变量（SCSS中的大括号或Sass中的缩进代码）通常是本地的，并且只能在声明它们的块中访问。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$global-variable</span></span><span class="token punctuation">:</span> global value<span class="token punctuation">;</span>
+
+<span class="token selector">.content </span><span class="token punctuation">{</span>
+  <span class="token property"><span class="token variable">$local-variable</span></span><span class="token punctuation">:</span> local value<span class="token punctuation">;</span>
+  <span class="token property">global</span><span class="token punctuation">:</span> <span class="token variable">$global-variable</span><span class="token punctuation">;</span>
+  <span class="token property">local</span><span class="token punctuation">:</span> <span class="token variable">$local-variable</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.sidebar </span><span class="token punctuation">{</span>
+  <span class="token property">global</span><span class="token punctuation">:</span> <span class="token variable">$global-variable</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// This would fail, because $local-variable isn't in scope:</span>
+  <span class="token comment">// local: $local-variable;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token variable-line"><span class="token variable">$global-variable</span><span class="token punctuation">:</span> global value</span>
+
+<span class="token selector">.content</span>
+<span class="token variable-line">  <span class="token variable">$local-variable</span><span class="token punctuation">:</span> local value</span>
+<span class="token property-line">  <span class="token property">global</span><span class="token punctuation">:</span> <span class="token variable">$global-variable</span></span>
+<span class="token property-line">  <span class="token property">local</span><span class="token punctuation">:</span> <span class="token variable">$local-variable</span></span>
+
+
+<span class="token selector">.sidebar</span>
+<span class="token property-line">  <span class="token property">global</span><span class="token punctuation">:</span> <span class="token variable">$global-variable</span></span>
+
+  <span class="token comment">// This would fail, because $local-variable isn't in scope:</span>
+  <span class="token comment">// local: $local-variable</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.content</span> <span class="token punctuation">{</span>
+  <span class="token property">global</span><span class="token punctuation">:</span> global value<span class="token punctuation">;</span>
+  <span class="token property">local</span><span class="token punctuation">:</span> local value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.sidebar</span> <span class="token punctuation">{</span>
+  <span class="token property">global</span><span class="token punctuation">:</span> global value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <h3 id="同名变量"><a href="#同名变量" aria-hidden="true" class="header-anchor">#</a> 同名变量</h3> <p>局部变量与全局变量的名称可以相同。如果发生这种情况，实际上有两个同名的不同变量：一个局部变量和一个全局变量。这有助于确保编写局部变量的作者不会意外地更改他们甚至不知道的全局变量的值。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$variable</span></span><span class="token punctuation">:</span> global value<span class="token punctuation">;</span>
+
+<span class="token selector">.content </span><span class="token punctuation">{</span>
+  <span class="token property"><span class="token variable">$variable</span></span><span class="token punctuation">:</span> local value<span class="token punctuation">;</span>
+  <span class="token property">value</span><span class="token punctuation">:</span> <span class="token variable">$variable</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.sidebar </span><span class="token punctuation">{</span>
+  <span class="token property">value</span><span class="token punctuation">:</span> <span class="token variable">$variable</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token variable-line"><span class="token variable">$variable</span><span class="token punctuation">:</span> global value</span>
+
+<span class="token selector">.content</span>
+<span class="token variable-line">  <span class="token variable">$variable</span><span class="token punctuation">:</span> local value</span>
+<span class="token property-line">  <span class="token property">value</span><span class="token punctuation">:</span> <span class="token variable">$variable</span></span>
+
+
+<span class="token selector">.sidebar</span>
+<span class="token property-line">  <span class="token property">value</span><span class="token punctuation">:</span> <span class="token variable">$variable</span></span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.content</span> <span class="token punctuation">{</span>
+  <span class="token property">value</span><span class="token punctuation">:</span> local value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.sidebar</span> <span class="token punctuation">{</span>
+  <span class="token property">value</span><span class="token punctuation">:</span> global value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <p>如果需要在局部范围内（例如mixin）设置全局变量的值，可以使用<code>!global</code>标志。标记为<code>!global</code>的变量声明将始终分配给全局作用域。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$variable</span></span><span class="token punctuation">:</span> first global value<span class="token punctuation">;</span>
+
+<span class="token selector">.content </span><span class="token punctuation">{</span>
+  <span class="token property"><span class="token variable">$variable</span></span><span class="token punctuation">:</span> second global value !global<span class="token punctuation">;</span>
+  <span class="token property">value</span><span class="token punctuation">:</span> <span class="token variable">$variable</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.sidebar </span><span class="token punctuation">{</span>
+  <span class="token property">value</span><span class="token punctuation">:</span> <span class="token variable">$variable</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token selector">SASS SYNTAX</span>
+<span class="token variable-line"><span class="token variable">$variable</span><span class="token punctuation">:</span> first global value</span>
+
+<span class="token selector">.content</span>
+<span class="token variable-line">  <span class="token variable">$variable</span><span class="token punctuation">:</span> second global value !global</span>
+<span class="token property-line">  <span class="token property">value</span><span class="token punctuation">:</span> <span class="token variable">$variable</span></span>
+
+<span class="token selector">.sidebar</span>
+<span class="token property-line">  <span class="token property">value</span><span class="token punctuation">:</span> <span class="token variable">$variable</span></span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.content</span> <span class="token punctuation">{</span>
+  <span class="token property">value</span><span class="token punctuation">:</span> second global value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.sidebar</span> <span class="token punctuation">{</span>
+  <span class="token property">value</span><span class="token punctuation">:</span> second global value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <p>兼容性：Dart Sass <span class="badge tip" style="vertical-align:middle;" data-v-0f036736>2.0.0+</span> <span class="sa-ver-divider">|</span>LibSass  ✗<span class="sa-ver-divider">|</span>Ruby Sass  ✗</p> <blockquote><p>旧的Sass版本<code>!global</code>可用于处理还不存在的变量。为确保每个样式表声明是相同的变量（无论它是如何被执行的），这种行为是不赞成的。</p></blockquote> <p><code>!global</code>标志建议用于设置已经在顶层文件声明的变量。不建议用于声明新变量。</p> <h3 id="流程作用域"><a href="#流程作用域" aria-hidden="true" class="header-anchor">#</a> 流程作用域</h3> <p>在<a href="/api/AtRules/Flow/">流程控制</a>中声明的变量具有特殊的作用域：它们不会在流程控制的同一级别上隐藏变量。相反，它们只是赋值给那些变量。这使得有条件地为变量赋值或将值构建为循环的一部分变得容易得多。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$dark-theme</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token statement keyword">!default</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$primary-color</span></span><span class="token punctuation">:</span> #f8bbd0 <span class="token statement keyword">!default</span><span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$accent-color</span></span><span class="token punctuation">:</span> #6a1b9a <span class="token statement keyword">!default</span><span class="token punctuation">;</span>
+
+<span class="token keyword">@if</span> <span class="token selector"><span class="token variable">$dark-theme</span> </span><span class="token punctuation">{</span>
+  <span class="token property"><span class="token variable">$primary-color</span></span><span class="token punctuation">:</span> <span class="token function">darken</span><span class="token punctuation">(</span><span class="token variable">$primary-color</span><span class="token punctuation">,</span> 60%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property"><span class="token variable">$accent-color</span></span><span class="token punctuation">:</span> <span class="token function">lighten</span><span class="token punctuation">(</span><span class="token variable">$accent-color</span><span class="token punctuation">,</span> 60%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.button </span><span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token variable">$primary-color</span><span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid <span class="token variable">$accent-color</span><span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token variable-line"><span class="token variable">$dark-theme</span><span class="token punctuation">:</span> true !default</span>
+<span class="token variable-line"><span class="token variable">$primary-color</span><span class="token punctuation">:</span> #f8bbd0 !default</span>
+<span class="token variable-line"><span class="token variable">$accent-color</span><span class="token punctuation">:</span> #6a1b9a !default</span>
+
+<span class="token atrule-line"><span class="token atrule">@if</span> $dark-theme</span>
+<span class="token variable-line">  <span class="token variable">$primary-color</span><span class="token punctuation">:</span> darken(<span class="token variable">$primary-color</span>, 60<span class="token operator">%</span>)</span>
+<span class="token variable-line">  <span class="token variable">$accent-color</span><span class="token punctuation">:</span> lighten(<span class="token variable">$accent-color</span>, 60<span class="token operator">%</span>)</span>
+
+
+<span class="token selector">.button</span>
+<span class="token property-line">  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token variable">$primary-color</span></span>
+<span class="token property-line">  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid <span class="token variable">$accent-color</span></span>
+<span class="token property-line">  <span class="token property">border-radius</span><span class="token punctuation">:</span> 3px</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.button</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #750c30<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #f5ebfc<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <div class="warning custom-block"><p>流程控制只能在给在外部作用域已经声明过的变量赋值，它们不能声明新变量。即使需要将变量赋值为<code>null</code>，也要确保在赋值之前已经声明了变量。</p></div> <h2 id="变量函数"><a href="#变量函数" aria-hidden="true" class="header-anchor">#</a> 变量函数</h2> <p>Sass核心库为处理变量提供了两个高级函数。<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">variable-exists()</a>：判断给定名称的变量是否存在于当前作用域中；<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">global-variable-exists()</a>：给定名称的变量是否存在于全局作用域中。</p> <div class="warning custom-block"><p>用户有时希望使用插值函数根据另一个变量定义变量名。Sass不允许这样做，因为这样一来，一眼就很难看出在哪里定义了哪些变量。不过，您可以做的是定义一个从名称到值的<a href="/api/Values/Maps.html">映射</a>，然后可以使用变量访问这些值。</p></div> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$theme-colors</span></span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
+  <span class="token string">&quot;success&quot;</span><span class="token punctuation">:</span> #28a745<span class="token punctuation">,</span>
+  <span class="token string">&quot;info&quot;</span><span class="token punctuation">:</span> #17a2b8<span class="token punctuation">,</span>
+  <span class="token string">&quot;warning&quot;</span><span class="token punctuation">:</span> #ffc107<span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token selector">.alert </span><span class="token punctuation">{</span>
+  <span class="token comment">// Instead of $theme-color-#{warning}</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">map-get</span><span class="token punctuation">(</span><span class="token variable">$theme-colors</span><span class="token punctuation">,</span> <span class="token string">&quot;warning&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token variable-line"><span class="token variable">$theme-colors</span><span class="token punctuation">:</span> (</span><span class="token string">&quot;success&quot;</span><span class="token selector">: #28a745, </span><span class="token string">&quot;info&quot;</span><span class="token selector">: #17a2b8, </span><span class="token string">&quot;warning&quot;</span><span class="token selector">: #ffc107)</span>
+
+<span class="token selector">.alert</span>
+  <span class="token comment">// Instead of $theme-color-#{warning}</span>
+<span class="token property-line">  <span class="token property">background-color</span><span class="token punctuation">:</span> map-get(<span class="token variable">$theme-colors</span>, </span><span class="token string">&quot;warning&quot;</span><span class="token selector">)</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.alert</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #ffc107<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">2019-11-5 4:49:11 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/api/StyleRules/PlaceholderSelectors.html" class="prev">
+          占位符选择器
+        </a></span> <span class="next"><a href="/api/Interpolation.html">
+          插值
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.be7218e5.js" defer></script><script src="/assets/js/vendors~layout-layout.ad69256e.js" defer></script><script src="/assets/js/layout-layout.6d559a4d.js" defer></script><script src="/assets/js/page-api-variables.a0563f17.js" defer></script><script src="/assets/js/95.c540d740.js" defer></script><script src="/assets/js/99.25118691.js" defer></script>
+</body>
+
+</html>

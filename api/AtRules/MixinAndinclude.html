@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>@mixin、@include | Sass中文文档</title>
+    <meta name="description" content="Sass是世界上最成熟、稳定、强大的专业级CSS扩展语言">
+    <meta name="keywords" content="Sass,Sass教程,Sass中国,Sass中文,Sass文档,SCSS,SCSS教程,SCSS中国,SCSS中文,SCSS文档,CSS预处理">
+  <link rel="icon" href="/images/favicon.ico" preload="true" as="image">
+    
+    <link rel="preload" href="/assets/css/0.styles.f50bc863.css" as="style"><link rel="preload" href="/assets/js/app.be7218e5.js" as="script"><link rel="preload" href="/assets/js/vendors~layout-layout.ad69256e.js" as="script"><link rel="preload" href="/assets/js/layout-layout.6d559a4d.js" as="script"><link rel="preload" href="/assets/js/page-api-atrules-mixinandinclude.99f04b35.js" as="script"><link rel="preload" href="/assets/js/95.c540d740.js" as="script"><link rel="preload" href="/assets/js/99.25118691.js" as="script">
+    <link rel="stylesheet" href="/assets/css/0.styles.f50bc863.css">
+    <meta name="baidu-site-verification" content="HISWYjeJhP">
+    <meta name="google-site-verification" content="o-XFzkWKa1fqZMPS6L8cuu7-UCoqTSWKhk-tZAdIW9E">
+    <script>var _hmt = _hmt || []; (function () { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?0e27eeb01c53bbd49dcc535da62d57ac"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s) })();</script>
+</head>
+
+<body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Sass中文文档</span></a> <section data-v-3a3eb35e><span data-v-3a3eb35e>|</span> <a class="el-link el-link--primary" data-v-3a3eb35e><!----><span class="el-link--inner">关闭广告</span><!----></a></section> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/install/" class="nav-link">安装</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习指南</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learn/Preprocessing.html" class="nav-link">预处理</a></li><li class="dropdown-item"><!----> <a href="/learn/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/learn/Nesting.html" class="nav-link">嵌套规则</a></li><li class="dropdown-item"><!----> <a href="/learn/Partials.html" class="nav-link">片段文件</a></li><li class="dropdown-item"><!----> <a href="/learn/Import.html" class="nav-link">文件导入</a></li><li class="dropdown-item"><!----> <a href="/learn/Mixins.html" class="nav-link">混合器</a></li><li class="dropdown-item"><!----> <a href="/learn/Extend.html" class="nav-link">扩展和继承</a></li><li class="dropdown-item"><!----> <a href="/learn/Operators.html" class="nav-link">操作符</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/api/Syntax/" class="nav-link">语法</a></li><li class="dropdown-item"><!----> <a href="/api/StyleRules/" class="nav-link">样式规则</a></li><li class="dropdown-item"><!----> <a href="/api/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/api/Interpolation.html" class="nav-link">插值</a></li><li class="dropdown-item"><!----> <a href="/api/AtRules/" class="nav-link router-link-active">AtRules</a></li><li class="dropdown-item"><!----> <a href="/api/Values/" class="nav-link">值类型</a></li><li class="dropdown-item"><!----> <a href="/api/Operators/" class="nav-link">操作符</a></li><li class="dropdown-item"><!----> <a href="/api/Modules/" class="nav-link">内置模块</a></li><li class="dropdown-item"><!----> <a href="/api/BreakChanges/" class="nav-link">突破性更改</a></li><li class="dropdown-item"><!----> <a href="/api/CommandLine/" class="nav-link">命令行</a></li><li class="dropdown-item"><!----> <a href="/api/JsApi/" class="nav-link">JavaScript API</a></li></ul></div></div><div class="nav-item"><a href="https://sass-lang.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  英文官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/Contact.html" class="nav-link">Contact</a></div> <a href="https://github.com/zongyang/sass-cn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/install/" class="nav-link">安装</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习指南</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learn/Preprocessing.html" class="nav-link">预处理</a></li><li class="dropdown-item"><!----> <a href="/learn/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/learn/Nesting.html" class="nav-link">嵌套规则</a></li><li class="dropdown-item"><!----> <a href="/learn/Partials.html" class="nav-link">片段文件</a></li><li class="dropdown-item"><!----> <a href="/learn/Import.html" class="nav-link">文件导入</a></li><li class="dropdown-item"><!----> <a href="/learn/Mixins.html" class="nav-link">混合器</a></li><li class="dropdown-item"><!----> <a href="/learn/Extend.html" class="nav-link">扩展和继承</a></li><li class="dropdown-item"><!----> <a href="/learn/Operators.html" class="nav-link">操作符</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/api/Syntax/" class="nav-link">语法</a></li><li class="dropdown-item"><!----> <a href="/api/StyleRules/" class="nav-link">样式规则</a></li><li class="dropdown-item"><!----> <a href="/api/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/api/Interpolation.html" class="nav-link">插值</a></li><li class="dropdown-item"><!----> <a href="/api/AtRules/" class="nav-link router-link-active">AtRules</a></li><li class="dropdown-item"><!----> <a href="/api/Values/" class="nav-link">值类型</a></li><li class="dropdown-item"><!----> <a href="/api/Operators/" class="nav-link">操作符</a></li><li class="dropdown-item"><!----> <a href="/api/Modules/" class="nav-link">内置模块</a></li><li class="dropdown-item"><!----> <a href="/api/BreakChanges/" class="nav-link">突破性更改</a></li><li class="dropdown-item"><!----> <a href="/api/CommandLine/" class="nav-link">命令行</a></li><li class="dropdown-item"><!----> <a href="/api/JsApi/" class="nav-link">JavaScript API</a></li></ul></div></div><div class="nav-item"><a href="https://sass-lang.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  英文官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/Contact.html" class="nav-link">Contact</a></div> <a href="https://github.com/zongyang/sass-cn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/install/" class="sidebar-link">安装</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>学习指南</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/learn/" class="sidebar-link">基础知识</a></li><li><a href="/learn/Preprocessing.html" class="sidebar-link">预处理</a></li><li><a href="/learn/Variables.html" class="sidebar-link">变量</a></li><li><a href="/learn/Nesting.html" class="sidebar-link">嵌套规则</a></li><li><a href="/learn/Partials.html" class="sidebar-link">片段文件</a></li><li><a href="/learn/Import.html" class="sidebar-link">文件导入</a></li><li><a href="/learn/Mixins.html" class="sidebar-link">混合器</a></li><li><a href="/learn/Extend.html" class="sidebar-link">扩展与继承</a></li><li><a href="/learn/Operators.html" class="sidebar-link">操作符</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>文档</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/api/" class="sidebar-link">综述</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>语法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>样式规则</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/api/Variables.html" class="sidebar-link">变量</a></li><li><a href="/api/Interpolation.html" class="sidebar-link">插值</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>@规则</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/api/AtRules/" class="sidebar-link">综述</a></li><li><a href="/api/AtRules/Import.html" class="sidebar-link">@import</a></li><li><a href="/api/AtRules/MixinAndinclude.html" class="active sidebar-link">@mixin、@include</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/api/AtRules/MixinAndinclude.html#参数" class="sidebar-link">参数</a></li><li class="sidebar-sub-header"><a href="/api/AtRules/MixinAndinclude.html#内容块" class="sidebar-link">内容块</a></li><li class="sidebar-sub-header"><a href="/api/AtRules/MixinAndinclude.html#缩进mixin语法" class="sidebar-link">缩进Mixin语法</a></li></ul></li><li><a href="/api/AtRules/Function.html" class="sidebar-link">@function</a></li><li><a href="/api/AtRules/Extend.html" class="sidebar-link">@extend</a></li><li><a href="/api/AtRules/Error.html" class="sidebar-link">@error</a></li><li><a href="/api/AtRules/Warn.html" class="sidebar-link">@warn</a></li><li><a href="/api/AtRules/Debug.html" class="sidebar-link">@debug</a></li><li><a href="/api/AtRules/AtRoot.html" class="sidebar-link">@at-root</a></li><li><section class="sidebar-group collapsable is-sub-group depth-2"><p class="sidebar-heading"><span>流程控制</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/api/AtRules/FormCss.html" class="sidebar-link">CSS 原生@规则</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>值类型</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>操作符</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>内置模块</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>突破性更改</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>命令行</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>JavaScript API</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="mixin、-include"><a href="#mixin、-include" aria-hidden="true" class="header-anchor">#</a> @mixin、@include</h1> <div><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins data-ad-client="ca-pub-6227283216337087" data-ad-slot="6731084211" class="adsbygoogle" style="display:inline-block;width:600px;height:90px"></ins> <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script></div> <p>Mixin允许您定义可在整个样式表中复用的样式。这样可以有效减少<code>.float-left</code>这些非语义类的使用，并且可在样式库中方便的分发样式集合。</p> <p>Mixins是使用<code>@mixin</code>定义的，它被写为<code>@mixin &lt;name&gt;{ ... }</code>或<code>@mixin name(&lt;arguments...&gt;){ ... }</code>。mixin的名称可以是任何Sass标识符，它可以包含除<a href="/api/Syntax/Structure.html#顶层语句">顶级语句</a>之外的任何<a href="/api/Syntax/Structure.html#语句">语句</a>。它们可以用来封装可以放入单个<a href="/api/StyleRules/">样式规则</a>中的样式；它们可以包含自己的样式规则，可以嵌套在其他规则中，也可以包含在样式表的顶层；或者它们只是用来修改变量。</p> <p>使用<code>@include</code>把mixin包含到当前上下文中，该规则的写法是<code>@include &lt;name&gt;</code>或<code>@include &lt;name&gt;(&lt;arguments...&gt;)</code>，其中包含mixin的名称。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token keyword">@mixin</span> <span class="token selector">reset-list </span><span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">@mixin</span> <span class="token selector">horizontal-list </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> reset-list<span class="token punctuation">;</span>
+
+  <span class="token selector">li </span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+    <span class="token selector">margin: </span><span class="token punctuation">{</span>
+      <span class="token property">left</span><span class="token punctuation">:</span> -2px<span class="token punctuation">;</span>
+      <span class="token property">right</span><span class="token punctuation">:</span> 2em<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">nav ul </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> horizontal-list<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token atrule-line"><span class="token atrule">@mixin</span> reset-list</span>
+<span class="token property-line">  <span class="token property">margin</span><span class="token punctuation">:</span> 0</span>
+<span class="token property-line">  <span class="token property">padding</span><span class="token punctuation">:</span> 0</span>
+<span class="token property-line">  <span class="token property">list-style</span><span class="token punctuation">:</span> none</span>
+
+
+<span class="token atrule-line"><span class="token atrule">@mixin</span> horizontal-list</span>
+<span class="token atrule-line">  <span class="token atrule">@include</span> reset-list</span>
+
+  <span class="token selector">li</span>
+<span class="token property-line">    <span class="token property">display</span><span class="token punctuation">:</span> inline-block</span>
+<span class="token property-line">    <span class="token property">margin</span><span class="token punctuation">:</span></span>
+<span class="token property-line">      <span class="token property">left</span><span class="token punctuation">:</span> -2px</span>
+<span class="token property-line">      <span class="token property">right</span><span class="token punctuation">:</span> 2em</span>
+
+<span class="token selector">nav ul</span>
+<span class="token atrule-line">  <span class="token atrule">@include</span> horizontal-list</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">nav ul</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">nav ul li</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> -2px<span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> 2em<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <div class="tip custom-block"><p>与所有Sass标识符一样，mixin名称将连字符和下划线视为相同的。这意味着<code>reset-list</code>和<code>reset_list</code>都引用相同的mixin。这是Sass早期的历史遗留问题，当时它只允许在标识符名称中使用下划线。一旦Sass添加了对连字符的支持来匹配CSS的语法，这两种方法就等价了，从而使迁移更加容易。</p></div> <h2 id="参数"><a href="#参数" aria-hidden="true" class="header-anchor">#</a> 参数</h2> <p>mixin还可以接受参数，这允许每次调用它们时定制它们的行为。参数在mixin的名称后面的<code>@mixin</code>规则中指定，由圆括号包围的变量名称列表。然后，mixin必须以<a href="/api/AtRules/api/Syntax/Structure.html#表达式">SassScript表达式</a>的形式包含相同数量的参数。这些表达式的值在mixin的主体中作为相应的变量可用。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token keyword">@mixin</span> <span class="token function">rtl</span><span class="token punctuation">(</span><span class="token variable">$property</span><span class="token punctuation">,</span> <span class="token variable">$ltr-value</span><span class="token punctuation">,</span> <span class="token variable">$rtl-value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token property"><span class="token variable">#{$property}</span></span><span class="token punctuation">:</span> <span class="token variable">$ltr-value</span><span class="token punctuation">;</span>
+
+  <span class="token selector">[dir=rtl] <span class="token parent important">&amp;</span> </span><span class="token punctuation">{</span>
+    <span class="token property"><span class="token variable">#{$property}</span></span><span class="token punctuation">:</span> <span class="token variable">$rtl-value</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.sidebar </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">rtl</span><span class="token punctuation">(</span>float<span class="token punctuation">,</span> left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token atrule-line"><span class="token atrule">@mixin</span> rtl($property, $ltr-value, $rtl-value)</span>
+<span class="token property-line">  <span class="token property">#{$property}</span><span class="token punctuation">:</span> <span class="token variable">$ltr-value</span></span>
+
+  <span class="token selector">[dir=rtl] &amp;</span>
+<span class="token property-line">    <span class="token property">#{$property}</span><span class="token punctuation">:</span> <span class="token variable">$rtl-value</span></span>
+
+<span class="token selector">.sidebar</span>
+<span class="token atrule-line">  <span class="token atrule">@include</span> rtl(float, left, right)</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.sidebar</span> <span class="token punctuation">{</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">[dir=rtl] .sidebar</span> <span class="token punctuation">{</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <div class="tip custom-block"><p>参数列表后面也可以有逗号！这可以使重构样式表时更容易避免语法错误。</p></div> <h3 id="可选参数"><a href="#可选参数" aria-hidden="true" class="header-anchor">#</a> 可选参数</h3> <p>通常，当包含mixin时，必须传递mixin声明的每个参数。但是，您可以通过定义一个默认值来使参数成为可选的，如果没有传递该参数，则将使用该默认值。默认值使用与<a href="/api/Variables.html">变量声明</a>相同的语法:变量名，后跟冒号和<a href="/api/AtRules/api/Syntax/Structure.html#表达式">SassScript表达式</a>。这使得定义灵活的mixin API变得很容易，这些API可以以简单或复杂的方式使用。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token keyword">@mixin</span> <span class="token function">replace-text</span><span class="token punctuation">(</span><span class="token variable">$image</span><span class="token punctuation">,</span> <span class="token property"><span class="token variable">$x</span></span><span class="token punctuation">:</span> 50%<span class="token punctuation">,</span> <span class="token property"><span class="token variable">$y</span></span><span class="token punctuation">:</span> 50%<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token property">text-indent</span><span class="token punctuation">:</span> -99999em<span class="token punctuation">;</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+
+  <span class="token selector">background: </span><span class="token punctuation">{</span>
+    <span class="token property">image</span><span class="token punctuation">:</span> <span class="token variable">$image</span><span class="token punctuation">;</span>
+    <span class="token property">repeat</span><span class="token punctuation">:</span> no-repeat<span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> <span class="token variable">$x</span> <span class="token variable">$y</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.mail-icon </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">replace-text</span><span class="token punctuation">(</span><span class="token url">url</span><span class="token punctuation">(</span><span class="token string">&quot;/images/mail.svg&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token atrule-line"><span class="token atrule">@mixin</span> replace-text($image, $x: 50%, $y: 50%)</span>
+<span class="token property-line">  <span class="token property">text-indent</span><span class="token punctuation">:</span> -99999em</span>
+<span class="token property-line">  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden</span>
+<span class="token property-line">  <span class="token property">text-align</span><span class="token punctuation">:</span> left</span>
+
+<span class="token property-line">  <span class="token property">background</span><span class="token punctuation">:</span></span>
+<span class="token property-line">    <span class="token property">image</span><span class="token punctuation">:</span> <span class="token variable">$image</span></span>
+<span class="token property-line">    <span class="token property">repeat</span><span class="token punctuation">:</span> no-repeat</span>
+<span class="token property-line">    <span class="token property">position</span><span class="token punctuation">:</span> <span class="token variable">$x</span> <span class="token variable">$y</span></span>
+
+<span class="token selector">.mail-icon</span>
+<span class="token atrule-line">  <span class="token atrule">@include</span> replace-text(url(&quot;/images/mail.svg&quot;), 0)</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.mail-icon</span> <span class="token punctuation">{</span>
+  <span class="token property">text-indent</span><span class="token punctuation">:</span> -99999em<span class="token punctuation">;</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>&quot;/images/mail.svg&quot;<span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+  <span class="token property">background-repeat</span><span class="token punctuation">:</span> no-repeat<span class="token punctuation">;</span>
+  <span class="token property">background-position</span><span class="token punctuation">:</span> 0 50%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <div class="tip custom-block"><p>默认值可以是任何SassScript表达式，它们甚至可以引用前面的参数！</p></div> <h3 id="带键名的参数"><a href="#带键名的参数" aria-hidden="true" class="header-anchor">#</a> 带键名的参数</h3> <p>当包含mixin时，除了按参数列表中的位置传递参数外，还可以按键名传递参数。这对于具有多个可选参数的mixin，或具有<a href="/api/Values/Booleans.html">布尔参数</a>的mixin尤其有用。关键字参数使用与<a href="/api/Variables.html">变量声明</a>和<a href="#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0">可选参数</a>相同的语法。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token keyword">@mixin</span> <span class="token function">square</span><span class="token punctuation">(</span><span class="token variable">$size</span><span class="token punctuation">,</span> <span class="token property"><span class="token variable">$radius</span></span><span class="token punctuation">:</span> 0<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">$size</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$size</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">@if</span> <span class="token selector"><span class="token variable">$radius</span> != 0 </span><span class="token punctuation">{</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token variable">$radius</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.avatar </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">square</span><span class="token punctuation">(</span>100px<span class="token punctuation">,</span> <span class="token property"><span class="token variable">$radius</span></span><span class="token punctuation">:</span> 4px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token atrule-line"><span class="token atrule">@mixin</span> square($size, $radius: 0)</span>
+<span class="token property-line">  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">$size</span></span>
+<span class="token property-line">  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$size</span></span>
+
+<span class="token atrule-line">  <span class="token atrule">@if</span> $radius !<span class="token atrule">=</span> 0</span>
+<span class="token property-line">    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token variable">$radius</span></span>
+
+<span class="token selector">.avatar</span>
+<span class="token atrule-line">  <span class="token atrule">@include</span> square(100px, $radius: 4px)</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.avatar</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <div class="warning custom-block"><p>因为任何参数都可以通过键名传递，所以在重命名mixin的参数时要小心，它可能会影响到使用的用户！将旧名称作为<a href="#%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0">可选参数</a>保留一段时间，并在有人传递时打印<a href="/api/AtRules/Warn.html">警告</a>，这样他们就知道要迁移到新参数，这是很有帮助的。</p></div> <h3 id="不定参数"><a href="#不定参数" aria-hidden="true" class="header-anchor">#</a> 不定参数</h3> <p>有时候，mixin能够接受任意数量的参数是很有用的。如果<code>@mixin</code>声明中的最后一个参数以<code>...</code>结尾，则传入的额外参数将被视为一个列表。这种参数称为<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">参数列表</a>。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token keyword">@mixin</span> <span class="token function">order</span><span class="token punctuation">(</span><span class="token variable">$height</span><span class="token punctuation">,</span> <span class="token variable">$selectors</span>...<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">@for</span> <span class="token variable">$i</span> <span class="token keyword">from</span> 0 to <span class="token function">length</span><span class="token punctuation">(</span><span class="token variable">$selectors</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    #<span class="token punctuation">{</span><span class="token function">nth</span><span class="token punctuation">(</span><span class="token variable">$selectors</span><span class="token punctuation">,</span> <span class="token variable">$i</span> <span class="token operator">+</span> 1<span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token punctuation">{</span>
+      <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+      <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$height</span><span class="token punctuation">;</span>
+      <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token variable">$i</span> <span class="token operator">*</span> <span class="token variable">$height</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">@include</span> <span class="token function">order</span><span class="token punctuation">(</span>150px<span class="token punctuation">,</span> <span class="token string">&quot;input.name&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;input.address&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;input.zip&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token atrule-line"><span class="token atrule">@mixin</span> order($height, $selectors...)</span>
+<span class="token atrule-line">  <span class="token atrule">@for</span> $i from 0 to length($selectors)</span>
+    <span class="token selector">#{</span><span class="token function">nth</span><span class="token selector">($selectors, $i + 1)}</span>
+<span class="token property-line">      <span class="token property">position</span><span class="token punctuation">:</span> absolute</span>
+<span class="token property-line">      <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$height</span></span>
+<span class="token property-line">      <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token variable">$i</span> <span class="token operator">*</span> <span class="token variable">$height</span></span>
+
+<span class="token atrule-line"><span class="token atrule">@include</span> order(150px, &quot;input.name&quot;, &quot;input.address&quot;, &quot;input.zip&quot;)</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">input.name</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">input.address</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">input.zip</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <h4 id="不定键名参数"><a href="#不定键名参数" aria-hidden="true" class="header-anchor">#</a> 不定键名参数</h4> <p>参数列表还可以用于接受不定键名参数。<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">keywords</a>接受一个参数列表，并返回这些额外的关键字参数的<a href="/api/Values/Maps.html">map</a>，其中键名不包含<code>$</code>，传递给mixin。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token keyword">@mixin</span> <span class="token function">syntax-colors</span><span class="token punctuation">(</span><span class="token variable">$args</span>...<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">@debug</span> <span class="token function">keywords</span><span class="token punctuation">(</span><span class="token variable">$args</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// (string: #080, comment: #800, $variable: $60b)</span>
+
+  <span class="token keyword">@each</span> <span class="token variable">$name</span><span class="token punctuation">,</span> <span class="token variable">$color</span> in <span class="token function">keywords</span><span class="token punctuation">(</span><span class="token variable">$args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token selector">pre span.stx-<span class="token variable">#{$name}</span> </span><span class="token punctuation">{</span>
+      <span class="token property">color</span><span class="token punctuation">:</span> <span class="token variable">$color</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">@include</span> <span class="token function">syntax-colors</span><span class="token punctuation">(</span>
+  <span class="token property"><span class="token variable">$string</span></span><span class="token punctuation">:</span> #080<span class="token punctuation">,</span>
+  <span class="token property"><span class="token variable">$comment</span></span><span class="token punctuation">:</span> #800<span class="token punctuation">,</span>
+  <span class="token property"><span class="token variable">$variable</span></span><span class="token punctuation">:</span> #60b<span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token atrule-line"><span class="token atrule">@mixin</span> syntax-colors($args...)</span>
+<span class="token atrule-line">  <span class="token atrule">@debug</span> keywords($args)  // (string: #080, comment: #800, $variable: $60b)</span>
+
+<span class="token atrule-line">  <span class="token atrule">@each</span> $name, $color in keywords($args)</span>
+    <span class="token selector">pre span.stx-#{$name}</span>
+<span class="token property-line">      <span class="token property">color</span><span class="token punctuation">:</span> <span class="token variable">$color</span></span>
+
+<span class="token atrule-line"><span class="token atrule">@include</span> syntax-colors($string: #080, $comment: #800, $variable: #60b);</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">pre span.stx-string</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #080<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">pre span.stx-comment</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #800<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">pre span.stx-variable</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #60b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <div class="tip custom-block"><p>如果您没有将参数列表传递给<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">keywords()</a>，则该参数列表将不允许额外的关键字参数。这可以帮助mixin的调用者确保他们的参数名称中没有出现任何拼写错误。</p></div> <h4 id="传递不定参数"><a href="#传递不定参数" aria-hidden="true" class="header-anchor">#</a> 传递不定参数</h4> <p>就像参数列表允许mixin接受任意位置或关键字参数一样，可以使用相同的语法将位置和关键字参数传递给mixin。如果你传递一个后面跟着<code>...</code>为<code>@include</code>的最后一个参数，它的元素将被视为附加的位置参数。类似地，map后面跟着<code>...</code>将被视为附加的关键字参数。你甚至可以一次把它们否传递过去！</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token property"><span class="token variable">$form-selectors</span></span><span class="token punctuation">:</span> <span class="token string">&quot;input.name&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;input.address&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;input.zip&quot;</span> <span class="token statement keyword">!default</span><span class="token punctuation">;</span>
+
+<span class="token keyword">@include</span> <span class="token function">order</span><span class="token punctuation">(</span>150px<span class="token punctuation">,</span> <span class="token variable">$form-selectors</span>...<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token variable-line"><span class="token variable">$form-selectors</span><span class="token punctuation">:</span> </span><span class="token string">&quot;input.name&quot;</span><span class="token selector">, </span><span class="token string">&quot;input.address&quot;</span><span class="token selector">, </span><span class="token string">&quot;input.zip&quot;</span> <span class="token selector">!default</span>
+
+<span class="token atrule-line"><span class="token atrule">@include</span> order(150px, $form-selectors...)</span>
+</code></pre></div></div></div></div> <div class="tip custom-block"><p>因为<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">参数列表</a>同时跟踪位置参数和关键字参数，所以可以使用它同时将这两个参数传递给另一个mixin。这使得为mixin定义别名变得超级容易！</p></div> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token keyword">@mixin</span> <span class="token function">btn</span><span class="token punctuation">(</span><span class="token variable">$args</span>...<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">@warn</span> <span class="token string">&quot;The btn() mixin is deprecated. Include button() instead.&quot;</span><span class="token punctuation">;</span>
+  <span class="token keyword">@include</span> <span class="token function">button</span><span class="token punctuation">(</span><span class="token variable">$args</span>...<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token atrule-line"><span class="token atrule">@mixin</span> btn($args...)</span>
+<span class="token atrule-line">  <span class="token atrule">@warn</span> &quot;The btn() mixin is deprecated. Include button() instead.&quot;</span>
+<span class="token atrule-line">  <span class="token atrule">@include</span> button($args...)</span>
+</code></pre></div></div></div></div> <h2 id="内容块"><a href="#内容块" aria-hidden="true" class="header-anchor">#</a> 内容块</h2> <p>除了接受参数外，mixin还可以接受整个样式块，称为<strong>内容块</strong>。mixin可以通过在其主体中包含<code>@content</code>来声明它接受一个内容块。与Sass中的任何其他块一样，使用大括号传递内容块，并将它注入到<code>@content</code>规则中。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token keyword">@mixin</span> <span class="token selector">hover </span><span class="token punctuation">{</span>
+  &amp;<span class="token punctuation">:</span><span class="token function">not</span><span class="token punctuation">(</span>[disabled]<span class="token punctuation">)</span><span class="token selector">:hover </span><span class="token punctuation">{</span>
+    <span class="token keyword">@content</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.button </span><span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid black<span class="token punctuation">;</span>
+  <span class="token keyword">@include</span> <span class="token selector">hover </span><span class="token punctuation">{</span>
+    <span class="token property">border-width</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token atrule-line"><span class="token atrule">@mixin</span> hover</span>
+<span class="token property-line">  <span class="token property">&amp;</span><span class="token punctuation">:</span><span class="token property">not([disabled])</span><span class="token punctuation">:</span><span class="token property">hover</span></span>
+<span class="token atrule-line">    <span class="token atrule">@content</span></span>
+
+<span class="token selector">.button</span>
+<span class="token property-line">  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid black</span>
+<span class="token atrule-line">  <span class="token atrule">@include</span> hover</span>
+<span class="token property-line">    <span class="token property">border-width</span><span class="token punctuation">:</span> 2px</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.button</span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid black<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.button:not([disabled]):hover</span> <span class="token punctuation">{</span>
+  <span class="token property">border-width</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <div class="tip custom-block"><p>mixin可以包含多个<code>@content</code>。如果是这样，则将为每个<code>@content</code>单独包含内容块。</p></div> <div class="warning custom-block"><p>内容块是一个词法作用域，这意味着它只能在包含mixin的作用域中访问到<a href="/api/Variables.html#作用域">本地变量</a>。即使在调用内容块之前定义了变量，它也不能看到在传递给mixin中定义的任何变量。</p></div> <h3 id="传递参数给内容块"><a href="#传递参数给内容块" aria-hidden="true" class="header-anchor">#</a> 传递参数给内容块</h3> <p>兼容性：Dart Sass <span class="badge tip" style="vertical-align:middle;" data-v-0f036736>1.15.0+</span> <span class="sa-ver-divider">|</span>LibSass  ✗<span class="sa-ver-divider">|</span>Ruby Sass  ✗</p> <p>mixin可以通过<code>@content(&lt;arguments...&gt;)</code>将参数传递给它的内容块，就像它将参数传递给另一个mixin一样。编写内容块的用户可以通过<code>@include &lt;name&gt; using (&lt;arguments...&gt;)</code>来接受参数。内容块的参数列表工作起来就像mixin的参数列表一样，<code>@content</code>传递给它的参数工作起来就像传递参数给mixin一样。</p> <div class="warning custom-block"><p>如果mixin将参数传递给它的内容块，该内容块必须声明它接受这些参数。这意味着只通过位置（而不是名称）传递参数是一个好主意，这意味着传递更多的参数是一个破坏性的更改。</p> <p>如果您想灵活地传递什么信息给内容块，请考虑传递包含它可能需要的信息的(map)[/api/Values/Maps]！</p></div> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token keyword">@mixin</span> <span class="token function">media</span><span class="token punctuation">(</span><span class="token variable">$types</span>...<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">@each</span> <span class="token selector"><span class="token variable">$type</span> in <span class="token variable">$types</span> </span><span class="token punctuation">{</span>
+    <span class="token atrule"><span class="token rule">@media</span> <span class="token variable">#{$type}</span></span> <span class="token punctuation">{</span>
+      <span class="token keyword">@content</span><span class="token punctuation">(</span><span class="token variable">$type</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">@include</span> <span class="token function">media</span><span class="token punctuation">(</span>screen<span class="token punctuation">,</span> print<span class="token punctuation">)</span> using <span class="token punctuation">(</span><span class="token variable">$type</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token selector">h1 </span><span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+    <span class="token keyword">@if</span> <span class="token selector"><span class="token variable">$type</span> == print </span><span class="token punctuation">{</span>
+      <span class="token property">font-family</span><span class="token punctuation">:</span> Calluna<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token atrule-line"><span class="token atrule">@mixin</span> media($types...)</span>
+<span class="token atrule-line">  <span class="token atrule">@each</span> $type in $types</span>
+<span class="token atrule-line">    <span class="token atrule">@media</span> #{$type}</span>
+<span class="token atrule-line">      <span class="token atrule">@content</span>($type)</span>
+
+<span class="token atrule-line"><span class="token atrule">@include</span> media(screen, print) using ($type)</span>
+  <span class="token selector">h1</span>
+<span class="token property-line">    <span class="token property">font-size</span><span class="token punctuation">:</span> 40px</span>
+<span class="token atrule-line">    <span class="token atrule">@if</span> $type <span class="token atrule">=</span><span class="token atrule">=</span> print</span>
+<span class="token property-line">      <span class="token property">font-family</span><span class="token punctuation">:</span> Calluna</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token atrule"><span class="token rule">@media</span> screen</span> <span class="token punctuation">{</span>
+  <span class="token selector">h1</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token atrule"><span class="token rule">@media</span> print</span> <span class="token punctuation">{</span>
+  <span class="token selector">h1</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> Calluna<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <h2 id="缩进mixin语法"><a href="#缩进mixin语法" aria-hidden="true" class="header-anchor">#</a> 缩进Mixin语法</h2> <p><a href="">缩进语法</a>除了标准的<code>@mixin</code>和<code>@include</code>之外，还有一个用于定义和使用mixin的特殊语法。mixin使用字符<code>=</code>定义，并使用<code>+</code>包含它们。虽然这种语法更简洁，但也更难以理解，建议用户避免使用。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token atrule-line"><span class="token atrule">=</span>reset-list</span>
+<span class="token property-line">  <span class="token property">margin</span><span class="token punctuation">:</span> 0</span>
+<span class="token property-line">  <span class="token property">padding</span><span class="token punctuation">:</span> 0</span>
+<span class="token property-line">  <span class="token property">list-style</span><span class="token punctuation">:</span> none</span>
+
+<span class="token atrule-line"><span class="token atrule">=</span>horizontal-list</span>
+<span class="token atrule-line">  <span class="token atrule">+</span>reset-list</span>
+
+  <span class="token selector">li</span>
+<span class="token property-line">    <span class="token property">display</span><span class="token punctuation">:</span> inline-block</span>
+<span class="token property-line">    <span class="token property">margin</span><span class="token punctuation">:</span></span>
+<span class="token property-line">      <span class="token property">left</span><span class="token punctuation">:</span> -2px</span>
+<span class="token property-line">      <span class="token property">right</span><span class="token punctuation">:</span> 2em</span>
+
+<span class="token selector">nav ul</span>
+<span class="token atrule-line">  <span class="token atrule">+</span>horizontal-list</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">nav ul</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">nav ul li</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> -2px<span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> 2em<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">2019-11-5 4:49:11 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/api/AtRules/Import.html" class="prev">
+          @import
+        </a></span> <span class="next"><a href="/api/AtRules/Function.html">
+          @function
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.be7218e5.js" defer></script><script src="/assets/js/vendors~layout-layout.ad69256e.js" defer></script><script src="/assets/js/layout-layout.6d559a4d.js" defer></script><script src="/assets/js/page-api-atrules-mixinandinclude.99f04b35.js" defer></script><script src="/assets/js/95.c540d740.js" defer></script><script src="/assets/js/99.25118691.js" defer></script>
+</body>
+
+</html>

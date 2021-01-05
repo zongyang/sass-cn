@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>父节点选择器 | Sass中文文档</title>
+    <meta name="description" content="Sass是世界上最成熟、稳定、强大的专业级CSS扩展语言">
+    <meta name="keywords" content="Sass,Sass教程,Sass中国,Sass中文,Sass文档,SCSS,SCSS教程,SCSS中国,SCSS中文,SCSS文档,CSS预处理">
+  <link rel="icon" href="/images/favicon.ico" preload="true" as="image">
+    
+    <link rel="preload" href="/assets/css/0.styles.f50bc863.css" as="style"><link rel="preload" href="/assets/js/app.be7218e5.js" as="script"><link rel="preload" href="/assets/js/vendors~layout-layout.ad69256e.js" as="script"><link rel="preload" href="/assets/js/layout-layout.6d559a4d.js" as="script"><link rel="preload" href="/assets/js/page-api-stylerules-parentselector.3eadadfa.js" as="script"><link rel="preload" href="/assets/js/99.25118691.js" as="script">
+    <link rel="stylesheet" href="/assets/css/0.styles.f50bc863.css">
+    <meta name="baidu-site-verification" content="HISWYjeJhP">
+    <meta name="google-site-verification" content="o-XFzkWKa1fqZMPS6L8cuu7-UCoqTSWKhk-tZAdIW9E">
+    <script>var _hmt = _hmt || []; (function () { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?0e27eeb01c53bbd49dcc535da62d57ac"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s) })();</script>
+</head>
+
+<body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Sass中文文档</span></a> <section data-v-3a3eb35e><span data-v-3a3eb35e>|</span> <a class="el-link el-link--primary" data-v-3a3eb35e><!----><span class="el-link--inner">关闭广告</span><!----></a></section> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/install/" class="nav-link">安装</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习指南</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learn/Preprocessing.html" class="nav-link">预处理</a></li><li class="dropdown-item"><!----> <a href="/learn/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/learn/Nesting.html" class="nav-link">嵌套规则</a></li><li class="dropdown-item"><!----> <a href="/learn/Partials.html" class="nav-link">片段文件</a></li><li class="dropdown-item"><!----> <a href="/learn/Import.html" class="nav-link">文件导入</a></li><li class="dropdown-item"><!----> <a href="/learn/Mixins.html" class="nav-link">混合器</a></li><li class="dropdown-item"><!----> <a href="/learn/Extend.html" class="nav-link">扩展和继承</a></li><li class="dropdown-item"><!----> <a href="/learn/Operators.html" class="nav-link">操作符</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/api/Syntax/" class="nav-link">语法</a></li><li class="dropdown-item"><!----> <a href="/api/StyleRules/" class="nav-link router-link-active">样式规则</a></li><li class="dropdown-item"><!----> <a href="/api/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/api/Interpolation.html" class="nav-link">插值</a></li><li class="dropdown-item"><!----> <a href="/api/AtRules/" class="nav-link">AtRules</a></li><li class="dropdown-item"><!----> <a href="/api/Values/" class="nav-link">值类型</a></li><li class="dropdown-item"><!----> <a href="/api/Operators/" class="nav-link">操作符</a></li><li class="dropdown-item"><!----> <a href="/api/Modules/" class="nav-link">内置模块</a></li><li class="dropdown-item"><!----> <a href="/api/BreakChanges/" class="nav-link">突破性更改</a></li><li class="dropdown-item"><!----> <a href="/api/CommandLine/" class="nav-link">命令行</a></li><li class="dropdown-item"><!----> <a href="/api/JsApi/" class="nav-link">JavaScript API</a></li></ul></div></div><div class="nav-item"><a href="https://sass-lang.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  英文官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/Contact.html" class="nav-link">Contact</a></div> <a href="https://github.com/zongyang/sass-cn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/install/" class="nav-link">安装</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习指南</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learn/Preprocessing.html" class="nav-link">预处理</a></li><li class="dropdown-item"><!----> <a href="/learn/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/learn/Nesting.html" class="nav-link">嵌套规则</a></li><li class="dropdown-item"><!----> <a href="/learn/Partials.html" class="nav-link">片段文件</a></li><li class="dropdown-item"><!----> <a href="/learn/Import.html" class="nav-link">文件导入</a></li><li class="dropdown-item"><!----> <a href="/learn/Mixins.html" class="nav-link">混合器</a></li><li class="dropdown-item"><!----> <a href="/learn/Extend.html" class="nav-link">扩展和继承</a></li><li class="dropdown-item"><!----> <a href="/learn/Operators.html" class="nav-link">操作符</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/api/Syntax/" class="nav-link">语法</a></li><li class="dropdown-item"><!----> <a href="/api/StyleRules/" class="nav-link router-link-active">样式规则</a></li><li class="dropdown-item"><!----> <a href="/api/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/api/Interpolation.html" class="nav-link">插值</a></li><li class="dropdown-item"><!----> <a href="/api/AtRules/" class="nav-link">AtRules</a></li><li class="dropdown-item"><!----> <a href="/api/Values/" class="nav-link">值类型</a></li><li class="dropdown-item"><!----> <a href="/api/Operators/" class="nav-link">操作符</a></li><li class="dropdown-item"><!----> <a href="/api/Modules/" class="nav-link">内置模块</a></li><li class="dropdown-item"><!----> <a href="/api/BreakChanges/" class="nav-link">突破性更改</a></li><li class="dropdown-item"><!----> <a href="/api/CommandLine/" class="nav-link">命令行</a></li><li class="dropdown-item"><!----> <a href="/api/JsApi/" class="nav-link">JavaScript API</a></li></ul></div></div><div class="nav-item"><a href="https://sass-lang.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  英文官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/Contact.html" class="nav-link">Contact</a></div> <a href="https://github.com/zongyang/sass-cn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/install/" class="sidebar-link">安装</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>学习指南</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/learn/" class="sidebar-link">基础知识</a></li><li><a href="/learn/Preprocessing.html" class="sidebar-link">预处理</a></li><li><a href="/learn/Variables.html" class="sidebar-link">变量</a></li><li><a href="/learn/Nesting.html" class="sidebar-link">嵌套规则</a></li><li><a href="/learn/Partials.html" class="sidebar-link">片段文件</a></li><li><a href="/learn/Import.html" class="sidebar-link">文件导入</a></li><li><a href="/learn/Mixins.html" class="sidebar-link">混合器</a></li><li><a href="/learn/Extend.html" class="sidebar-link">扩展与继承</a></li><li><a href="/learn/Operators.html" class="sidebar-link">操作符</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>文档</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/api/" class="sidebar-link">综述</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>语法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>样式规则</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/api/StyleRules/" class="sidebar-link">综述</a></li><li><a href="/api/StyleRules/PropertyDeclarations.html" class="sidebar-link">属性声明</a></li><li><a href="/api/StyleRules/ParentSelector.html" class="active sidebar-link">父节点选择器</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/api/StyleRules/ParentSelector.html#添加前缀" class="sidebar-link">添加前缀</a></li><li class="sidebar-sub-header"><a href="/api/StyleRules/ParentSelector.html#sassscript" class="sidebar-link">SassScript</a></li></ul></li><li><a href="/api/StyleRules/PlaceholderSelectors.html" class="sidebar-link">占位符选择器</a></li></ul></section></li><li><a href="/api/Variables.html" class="sidebar-link">变量</a></li><li><a href="/api/Interpolation.html" class="sidebar-link">插值</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>@规则</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>值类型</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>操作符</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>内置模块</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>突破性更改</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>命令行</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>JavaScript API</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="父节点选择器"><a href="#父节点选择器" aria-hidden="true" class="header-anchor">#</a> 父节点选择器</h1> <div><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins data-ad-client="ca-pub-6227283216337087" data-ad-slot="6731084211" class="adsbygoogle" style="display:inline-block;width:600px;height:90px"></ins> <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script></div> <p>父选择器<code>&amp;</code>是由Sass发明的一个特殊选择器，用于<a href="/api/StyleRules/#嵌套">嵌套选择器</a>中引用外部选择器。它使以更复杂的方式重用外部选择器成为可能，比如添加<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-classes" target="_blank" rel="noopener noreferrer">伪类<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>或在父类之前添加选择器。</p> <p>当在内部选择器中使用父选择器时，它将被相应的外部选择器替换。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token selector">.alert </span><span class="token punctuation">{</span>
+  <span class="token comment">// The parent selector can be used to add pseudo-classes to the outer</span>
+  <span class="token comment">// selector.</span>
+  <span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">{</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// It can also be used to style the outer selector in a certain context, such</span>
+  <span class="token comment">// as a body set to use a right-to-left language.</span>
+  <span class="token selector">[dir=rtl] <span class="token parent important">&amp;</span> </span><span class="token punctuation">{</span>
+    <span class="token property">margin-left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">margin-right</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// You can even use it as an argument to pseudo-class selectors.</span>
+  <span class="token punctuation">:</span><span class="token function">not</span><span class="token punctuation">(</span>&amp;<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token property">opacity</span><span class="token punctuation">:</span> 0.8<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token selector">.alert</span>
+  <span class="token comment">// The parent selector can be used to add pseudo-classes to the outer</span>
+  <span class="token comment">// selector.</span>
+<span class="token property-line">  <span class="token property">&amp;</span><span class="token punctuation">:</span><span class="token property">hover</span></span>
+<span class="token property-line">    <span class="token property">font-weight</span><span class="token punctuation">:</span> bold</span>
+
+
+  <span class="token comment">// It can also be used to style the outer selector in a certain context, such</span>
+  <span class="token comment">// as a body set to use a right-to-left language.</span>
+  <span class="token selector">[dir=rtl] &amp;</span>
+<span class="token property-line">    <span class="token property">margin-left</span><span class="token punctuation">:</span> 0</span>
+<span class="token property-line">    <span class="token property">margin-right</span><span class="token punctuation">:</span> 10px</span>
+
+
+  <span class="token comment">// You can even use it as an argument to pseudo-class selectors.</span>
+<span class="token property-line">  <span class="token punctuation">:</span><span class="token property">not(&amp;)</span></span>
+<span class="token property-line">    <span class="token property">opacity</span><span class="token punctuation">:</span> 0.8</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.alert:hover</span> <span class="token punctuation">{</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">[dir=rtl] .alert</span> <span class="token punctuation">{</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">:not(.alert)</span> <span class="token punctuation">{</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> 0.8<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <div class="warning custom-block"><p>因为父选择器可以被<code>h1</code>这样的类型选择器替换，所以只允许在复合选择器的开头使用，在复合选择器的开头也允许使用类型选择器。例如，<code>span&amp;</code>是不允许的。
+不过，我们正在考虑放宽这一限制。如果您想帮助实现这一点，请查看<a href="https://github.com/sass/sass/issues/1425" target="_blank" rel="noopener noreferrer">GitHub issue<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p></div> <h2 id="添加前缀"><a href="#添加前缀" aria-hidden="true" class="header-anchor">#</a> 添加前缀</h2> <p>还可以使用父选择器向外部选择器添加额外的后缀。当使用像<a href="http://getbem.com/" target="_blank" rel="noopener noreferrer">BEM<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>使用高度结构化类名的方法时，这尤其有用。只要外部选择器以字母数字名称结尾(如class、ID和元素选择器)，就可以使用父选择器附加附加文本。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token selector">.accordion </span><span class="token punctuation">{</span>
+  <span class="token property">max-width</span><span class="token punctuation">:</span> 600px<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 4rem auto<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 90%<span class="token punctuation">;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">&quot;Raleway&quot;</span><span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #f4f4f4<span class="token punctuation">;</span>
+
+  <span class="token selector"><span class="token parent important">&amp;</span>__copy </span><span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 1rem 1.5rem 2rem 1.5rem<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> gray<span class="token punctuation">;</span>
+    <span class="token property">line-height</span><span class="token punctuation">:</span> 1.6<span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span> 500<span class="token punctuation">;</span>
+
+    <span class="token selector"><span class="token parent important">&amp;</span>--open </span><span class="token punctuation">{</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token selector">.accordion</span>
+<span class="token property-line">  <span class="token property">max-width</span><span class="token punctuation">:</span> 600px</span>
+<span class="token property-line">  <span class="token property">margin</span><span class="token punctuation">:</span> 4rem auto</span>
+<span class="token property-line">  <span class="token property">width</span><span class="token punctuation">:</span> 90<span class="token operator">%</span></span>
+<span class="token property-line">  <span class="token property">font-family</span><span class="token punctuation">:</span> </span><span class="token string">&quot;Raleway&quot;</span><span class="token selector">, sans-serif</span>
+<span class="token property-line">  <span class="token property">background</span><span class="token punctuation">:</span> #f4f4f4</span>
+
+  <span class="token selector">&amp;__copy</span>
+<span class="token property-line">    <span class="token property">display</span><span class="token punctuation">:</span> none</span>
+<span class="token property-line">    <span class="token property">padding</span><span class="token punctuation">:</span> 1rem 1.5rem 2rem 1.5rem</span>
+<span class="token property-line">    <span class="token property">color</span><span class="token punctuation">:</span> gray</span>
+<span class="token property-line">    <span class="token property">line-height</span><span class="token punctuation">:</span> 1.6</span>
+<span class="token property-line">    <span class="token property">font-size</span><span class="token punctuation">:</span> 14px</span>
+<span class="token property-line">    <span class="token property">font-weight</span><span class="token punctuation">:</span> 500</span>
+
+    <span class="token selector">&amp;--open</span>
+<span class="token property-line">      <span class="token property">display</span><span class="token punctuation">:</span> block</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.accordion</span> <span class="token punctuation">{</span>
+  <span class="token property">max-width</span><span class="token punctuation">:</span> 600px<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 4rem auto<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 90%<span class="token punctuation">;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">&quot;Raleway&quot;</span><span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #f4f4f4<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.accordion__copy</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 1rem 1.5rem 2rem 1.5rem<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> gray<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 1.6<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> 500<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.accordion__copy--open</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <h2 id="sassscript"><a href="#sassscript" aria-hidden="true" class="header-anchor">#</a> SassScript</h2> <p>父选择器也可以在SassScript中使用。它是一个特殊的表达式，与<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">选择器函数</a>使用的相同格式返回当前父选择器：</p> <ul><li>逗号分隔的列表的<a href="/api/StyleRules/#选择器列表">选择器列表</a></li> <li>空格分隔的列表 -的<a href="/api/StyleRules/#组合选择器">组合选择器</a></li> <li>带引号的字符串的<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">复合选择器</a>。</li></ul> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token selector">.main aside:hover,
+.sidebar p </span><span class="token punctuation">{</span>
+  <span class="token property">parent-selector</span><span class="token punctuation">:</span> &amp;<span class="token punctuation">;</span>
+  <span class="token comment">// =&gt; ((unquote(&quot;.main&quot;) unquote(&quot;aside:hover&quot;)),</span>
+  <span class="token comment">//     (unquote(&quot;.sidebar&quot;) unquote(&quot;p&quot;)))</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token selector">.main aside:hover</span><span class="token selector">,</span>
+<span class="token selector">.sidebar p</span>
+<span class="token property-line">  <span class="token property">parent-selector</span><span class="token punctuation">:</span> &amp;</span>
+  <span class="token comment">// =&gt; ((unquote(&quot;.main&quot;) unquote(&quot;aside:hover&quot;)),</span>
+  <span class="token comment">//     (unquote(&quot;.sidebar&quot;) unquote(&quot;p&quot;)))</span>
+
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.main aside:hover,
+.sidebar p</span> <span class="token punctuation">{</span>
+  <span class="token property">parent-selector</span><span class="token punctuation">:</span> .main <span class="token property">aside</span><span class="token punctuation">:</span>hover<span class="token punctuation">,</span> .sidebar p<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <p>如果<code>&amp;</code>表达式在任何样式规则之外使用，它将返回<code>null</code>。由于<code>null</code>是<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">falsey</a>，这意味着您可以轻松地使用它来确定是否在样式规则中调用<code>mixin</code>。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token keyword">@mixin</span> <span class="token function">app-background</span><span class="token punctuation">(</span><span class="token variable">$color</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  #<span class="token punctuation">{</span><span class="token function">if</span><span class="token punctuation">(</span>&amp;<span class="token punctuation">,</span> <span class="token string">'&amp;.app-background'</span><span class="token punctuation">,</span> <span class="token string">'.app-background'</span><span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token variable">$color</span><span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>#fff<span class="token punctuation">,</span> 0.75<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">@include</span> <span class="token function">app-background</span><span class="token punctuation">(</span>#036<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token selector">.sidebar </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">app-background</span><span class="token punctuation">(</span>#c6538c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token atrule-line"><span class="token atrule">@mixin</span> app-background($color)</span>
+  <span class="token selector">#{</span><span class="token function">if</span><span class="token selector">(&amp;, </span><span class="token string">'&amp;.app-background'</span><span class="token selector">, </span><span class="token string">'.app-background'</span><span class="token selector">)}</span>
+<span class="token property-line">    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token variable">$color</span></span>
+<span class="token property-line">    <span class="token property">color</span><span class="token punctuation">:</span> rgba(#fff, 0.75)</span>
+
+
+
+<span class="token atrule-line"><span class="token atrule">@include</span> app-background(#036)</span>
+
+<span class="token selector">.sidebar</span>
+<span class="token atrule-line">  <span class="token atrule">@include</span> app-background(#c6538c)</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.app-background</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #036<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 0.75<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.sidebar.app-background</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #c6538c<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 255<span class="token punctuation">,</span> 0.75<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <h3 id="高级嵌套规则"><a href="#高级嵌套规则" aria-hidden="true" class="header-anchor">#</a> 高级嵌套规则</h3> <p>您可以使用<code>&amp;</code>作为一个普通的SassScript表达式，这意味着您可以将它传递给函数或将它包含在插值中—甚至在其他选择器中！将它与<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">选择器函数</a>和<a href="/api/AtRules/AtRoot.html">@at-root规则</a>结合使用，可以以非常强大的方式嵌套选择器。</p> <p>例如，假设您想编写一个匹配外部选择器和元素选择器的选择器。您可以编写一个像如下的<code>mixin</code>，它使用<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">selector-unify()</a>将<code>&amp;</code>与用户的选择器组合在一起。</p> <div class="el-tabs el-tabs--top el-tabs--border-card"><div class="el-tabs__header is-top"><div class="el-tabs__nav-wrap is-top"><div class="el-tabs__nav-scroll"><div role="tablist" class="el-tabs__nav is-top" style="transform:translateX(-0px);"></div></div></div></div><div class="el-tabs__content"><div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-scss extra-class"><pre class="language-scss"><code><span class="token keyword">@mixin</span> <span class="token function">unify-parent</span><span class="token punctuation">(</span><span class="token variable">$child</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token atrule"><span class="token rule">@at-root</span> #<span class="token punctuation">{</span><span class="token function">selector-unify</span><span class="token punctuation">(</span>&amp;<span class="token punctuation">,</span> <span class="token variable">$child</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span> <span class="token punctuation">{</span>
+    <span class="token keyword">@content</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.wrapper .field </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">unify-parent</span><span class="token punctuation">(</span><span class="token string">&quot;input&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* ... */</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">@include</span> <span class="token function">unify-parent</span><span class="token punctuation">(</span><span class="token string">&quot;select&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* ... */</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-sass extra-class"><pre class="language-sass"><code><span class="token atrule-line"><span class="token atrule">@mixin</span> unify-parent($child)</span>
+<span class="token atrule-line">  <span class="token atrule">@at-root</span> #{selector-unify(&amp;, $child)}</span>
+<span class="token atrule-line">    <span class="token atrule">@content</span></span>
+
+<span class="token selector">.wrapper .field</span>
+<span class="token atrule-line">  <span class="token atrule">@include</span> unify-parent(&quot;input&quot;)</span>
+    <span class="token comment">/* ...</span>
+
+<span class="token atrule-line">  <span class="token atrule">@include</span> unify-parent(&quot;select&quot;)</span>
+    <span class="token comment">/* ...</span>
+</code></pre></div></div> <div role="tabpanel" aria-hidden="true" id="pane-null" aria-labelledby="tab-null" class="el-tab-pane" style="display:none;"><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.wrapper input.field</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.wrapper select.field</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div></div> <div class="warning custom-block"><p>当Sass嵌套选择器时，它不知道使用什么插值函数来生成它们。这意味着即使使用<code>&amp;</code>作为SassScript表达式，它也会自动将外部选择器添加到内部选择器。这就是为什么您需要显式地使用<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">@at-root规则</a>来告诉Sass不要包含外部选择器。</p></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">2019-11-5 4:49:11 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/api/StyleRules/PropertyDeclarations.html" class="prev">
+          属性声明
+        </a></span> <span class="next"><a href="/api/StyleRules/PlaceholderSelectors.html">
+          占位符选择器
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.be7218e5.js" defer></script><script src="/assets/js/vendors~layout-layout.ad69256e.js" defer></script><script src="/assets/js/layout-layout.6d559a4d.js" defer></script><script src="/assets/js/page-api-stylerules-parentselector.3eadadfa.js" defer></script><script src="/assets/js/99.25118691.js" defer></script>
+</body>
+
+</html>

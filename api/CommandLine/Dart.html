@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dart Sass命令行界面 | Sass中文文档</title>
+    <meta name="description" content="Sass是世界上最成熟、稳定、强大的专业级CSS扩展语言">
+    <meta name="keywords" content="Sass,Sass教程,Sass中国,Sass中文,Sass文档,SCSS,SCSS教程,SCSS中国,SCSS中文,SCSS文档,CSS预处理">
+  <link rel="icon" href="/images/favicon.ico" preload="true" as="image">
+    
+    <link rel="preload" href="/assets/css/0.styles.f50bc863.css" as="style"><link rel="preload" href="/assets/js/app.be7218e5.js" as="script"><link rel="preload" href="/assets/js/vendors~layout-layout.ad69256e.js" as="script"><link rel="preload" href="/assets/js/layout-layout.6d559a4d.js" as="script"><link rel="preload" href="/assets/js/page-api-commandline-dart.9b0e8cef.js" as="script"><link rel="preload" href="/assets/js/95.c540d740.js" as="script"><link rel="preload" href="/assets/js/99.25118691.js" as="script"><link rel="preload" href="/assets/js/101.8b3e49ec.js" as="script">
+    <link rel="stylesheet" href="/assets/css/0.styles.f50bc863.css">
+    <meta name="baidu-site-verification" content="HISWYjeJhP">
+    <meta name="google-site-verification" content="o-XFzkWKa1fqZMPS6L8cuu7-UCoqTSWKhk-tZAdIW9E">
+    <script>var _hmt = _hmt || []; (function () { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?0e27eeb01c53bbd49dcc535da62d57ac"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s) })();</script>
+</head>
+
+<body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Sass中文文档</span></a> <section data-v-3a3eb35e><span data-v-3a3eb35e>|</span> <a class="el-link el-link--primary" data-v-3a3eb35e><!----><span class="el-link--inner">关闭广告</span><!----></a></section> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/install/" class="nav-link">安装</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习指南</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learn/Preprocessing.html" class="nav-link">预处理</a></li><li class="dropdown-item"><!----> <a href="/learn/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/learn/Nesting.html" class="nav-link">嵌套规则</a></li><li class="dropdown-item"><!----> <a href="/learn/Partials.html" class="nav-link">片段文件</a></li><li class="dropdown-item"><!----> <a href="/learn/Import.html" class="nav-link">文件导入</a></li><li class="dropdown-item"><!----> <a href="/learn/Mixins.html" class="nav-link">混合器</a></li><li class="dropdown-item"><!----> <a href="/learn/Extend.html" class="nav-link">扩展和继承</a></li><li class="dropdown-item"><!----> <a href="/learn/Operators.html" class="nav-link">操作符</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/api/Syntax/" class="nav-link">语法</a></li><li class="dropdown-item"><!----> <a href="/api/StyleRules/" class="nav-link">样式规则</a></li><li class="dropdown-item"><!----> <a href="/api/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/api/Interpolation.html" class="nav-link">插值</a></li><li class="dropdown-item"><!----> <a href="/api/AtRules/" class="nav-link">AtRules</a></li><li class="dropdown-item"><!----> <a href="/api/Values/" class="nav-link">值类型</a></li><li class="dropdown-item"><!----> <a href="/api/Operators/" class="nav-link">操作符</a></li><li class="dropdown-item"><!----> <a href="/api/Modules/" class="nav-link">内置模块</a></li><li class="dropdown-item"><!----> <a href="/api/BreakChanges/" class="nav-link">突破性更改</a></li><li class="dropdown-item"><!----> <a href="/api/CommandLine/" class="nav-link router-link-active">命令行</a></li><li class="dropdown-item"><!----> <a href="/api/JsApi/" class="nav-link">JavaScript API</a></li></ul></div></div><div class="nav-item"><a href="https://sass-lang.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  英文官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/Contact.html" class="nav-link">Contact</a></div> <a href="https://github.com/zongyang/sass-cn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/install/" class="nav-link">安装</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">学习指南</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learn/Preprocessing.html" class="nav-link">预处理</a></li><li class="dropdown-item"><!----> <a href="/learn/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/learn/Nesting.html" class="nav-link">嵌套规则</a></li><li class="dropdown-item"><!----> <a href="/learn/Partials.html" class="nav-link">片段文件</a></li><li class="dropdown-item"><!----> <a href="/learn/Import.html" class="nav-link">文件导入</a></li><li class="dropdown-item"><!----> <a href="/learn/Mixins.html" class="nav-link">混合器</a></li><li class="dropdown-item"><!----> <a href="/learn/Extend.html" class="nav-link">扩展和继承</a></li><li class="dropdown-item"><!----> <a href="/learn/Operators.html" class="nav-link">操作符</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/api/Syntax/" class="nav-link">语法</a></li><li class="dropdown-item"><!----> <a href="/api/StyleRules/" class="nav-link">样式规则</a></li><li class="dropdown-item"><!----> <a href="/api/Variables.html" class="nav-link">变量</a></li><li class="dropdown-item"><!----> <a href="/api/Interpolation.html" class="nav-link">插值</a></li><li class="dropdown-item"><!----> <a href="/api/AtRules/" class="nav-link">AtRules</a></li><li class="dropdown-item"><!----> <a href="/api/Values/" class="nav-link">值类型</a></li><li class="dropdown-item"><!----> <a href="/api/Operators/" class="nav-link">操作符</a></li><li class="dropdown-item"><!----> <a href="/api/Modules/" class="nav-link">内置模块</a></li><li class="dropdown-item"><!----> <a href="/api/BreakChanges/" class="nav-link">突破性更改</a></li><li class="dropdown-item"><!----> <a href="/api/CommandLine/" class="nav-link router-link-active">命令行</a></li><li class="dropdown-item"><!----> <a href="/api/JsApi/" class="nav-link">JavaScript API</a></li></ul></div></div><div class="nav-item"><a href="https://sass-lang.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  英文官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/Contact.html" class="nav-link">Contact</a></div> <a href="https://github.com/zongyang/sass-cn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/install/" class="sidebar-link">安装</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>学习指南</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/learn/" class="sidebar-link">基础知识</a></li><li><a href="/learn/Preprocessing.html" class="sidebar-link">预处理</a></li><li><a href="/learn/Variables.html" class="sidebar-link">变量</a></li><li><a href="/learn/Nesting.html" class="sidebar-link">嵌套规则</a></li><li><a href="/learn/Partials.html" class="sidebar-link">片段文件</a></li><li><a href="/learn/Import.html" class="sidebar-link">文件导入</a></li><li><a href="/learn/Mixins.html" class="sidebar-link">混合器</a></li><li><a href="/learn/Extend.html" class="sidebar-link">扩展与继承</a></li><li><a href="/learn/Operators.html" class="sidebar-link">操作符</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>文档</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/api/" class="sidebar-link">综述</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>语法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>样式规则</span> <span class="arrow right"></span></p> <!----></section></li><li><a href="/api/Variables.html" class="sidebar-link">变量</a></li><li><a href="/api/Interpolation.html" class="sidebar-link">插值</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>@规则</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>值类型</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>操作符</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>内置模块</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>突破性更改</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>命令行</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/api/CommandLine/" class="sidebar-link">概述</a></li><li><a href="/api/CommandLine/Dart.html" class="active sidebar-link">Dart Sass命令行界面</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/api/CommandLine/Dart.html#使用方法" class="sidebar-link">使用方法</a></li><li class="sidebar-sub-header"><a href="/api/CommandLine/Dart.html#配置选项" class="sidebar-link">配置选项</a></li></ul></li><li><a href="/api/CommandLine/Ruby.html" class="sidebar-link">Ruby Sass命令行界面</a></li><li><a href="/api/CommandLine/Migrator.html" class="sidebar-link">迁移器</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>JavaScript API</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="dart-sass命令行界面"><a href="#dart-sass命令行界面" aria-hidden="true" class="header-anchor">#</a> Dart Sass命令行界面</h1> <div><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <ins data-ad-client="ca-pub-6227283216337087" data-ad-slot="6731084211" class="adsbygoogle" style="display:inline-block;width:600px;height:90px"></ins> <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script></div> <h2 id="使用方法"><a href="#使用方法" aria-hidden="true" class="header-anchor">#</a> 使用方法</h2> <p>Dart Sass可执行文件可以在两种模式中调用。</p> <h3 id="一对一模式"><a href="#一对一模式" aria-hidden="true" class="header-anchor">#</a> 一对一模式</h3> <div class="language- extra-class"><pre class="language-text"><code>sass &lt;input.scss&gt; [output.css]
+</code></pre></div><p>一对一模式将单个输入文件（input.scss）编译为单个输出位置（output.css)。如果没有传递输出位置，则将编译后的CSS打印到终端。</p> <p>如果扩展名为<code>.SCSS</code>，则将输入文件解析为<a href="/api/Syntax/#scss">SCSS</a>；如果扩展名为<code>.sass</code>，则解析为<a href="/api/Syntax/#缩进的语法">缩进语法</a>；如果扩展名为<code>.CSS</code>，则解析为<a href="/api/AtRules/Import.html#原生css-imports">原生CSS</a>。如果它没有这三种扩展中的一种，或者它来自标准输入，则默认将其解析为SCSS。这可以用<a href="#indented">--indented</a>标志来控制。</p> <p>特殊字符串<code>—</code>可以用来代替输入文件，以告诉Sass从<a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)" target="_blank" rel="noopener noreferrer">标准输入<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>中读取输入。Sass默认将其解析为SCSS，除非传递了<a href="#indented">--indented</a>标志。</p> <h3 id="多对多模式"><a href="#多对多模式" aria-hidden="true" class="header-anchor">#</a> 多对多模式</h3> <blockquote><p>兼容性    Dart Sass <span class="badge tip" style="vertical-align:middle;" data-v-0f036736>1.4.0+</span></p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>sass [&lt;input.css&gt;:&lt;output.css&gt;] [&lt;input/&gt;:&lt;output/&gt;]...
+</code></pre></div><p>多对多模式将一个或多个输入文件编译为一个或多个输出文件。输入和输出用冒号分开。它还可以将一个目录中的所有Sass文件编译为另一个目录中具有相同名称的CSS文件。</p> <div class="language- extra-class"><pre class="language-text"><code>​# Compiles style.scss to style.css.
+$ sass style.scss:style.css
+
+​# Compiles light.scss and dark.scss to light.css and dark.css.
+$ sass light.scss:light.css dark.scss:dark.css
+
+​# Compiles all Sass files in themes/ to CSS files in public/css/.
+$ sass themes:public/css
+</code></pre></div><p>在编译整个目录时，Sass将忽略名称以<code>_</code>开头的<a href="/api/AtRules/Import.html#片段文件">片段文件</a>。您可使用片段文件来避免生成一堆不必要的输出文件。</p> <h2 id="配置选项"><a href="#配置选项" aria-hidden="true" class="header-anchor">#</a> 配置选项</h2> <h3 id="输入和输出"><a href="#输入和输出" aria-hidden="true" class="header-anchor">#</a> 输入和输出</h3> <p>这些选项控制Sass如何加载输入文件以及如何生成输出文件。</p> <h4 id="stdin"><a href="#stdin" aria-hidden="true" class="header-anchor">#</a> --stdin</h4> <p>此标志是告诉Sass其输入为<a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)" target="_blank" rel="noopener noreferrer">标准输入<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。当它被传递时，不能传递任何输入文件。</p> <div class="language- extra-class"><pre class="language-text"><code>$ echo &quot;h1 {font-size: 40px}&quot; | sass --stdin h1.css
+$ echo &quot;h1 {font-size: 40px}&quot; | sass --stdin
+h1 {
+    font-size: 40px;
+}
+</code></pre></div><p><code>--stdin</code>标志不能用于<a href="#%E5%A4%9A%E5%AF%B9%E5%A4%9A%E6%A8%A1%E5%BC%8F">多对多模式</a>。</p> <h4 id="indented"><a href="#indented" aria-hidden="true" class="header-anchor">#</a> --indented</h4> <p>此标志告诉Sass将输入文件解析为<a href="/api/Syntax/#缩进的语法">缩进语法</a>。如果以<a href="#%E5%A4%9A%E5%AF%B9%E5%A4%9A%E6%A8%A1%E5%BC%8F">多对多模式</a>使用，则所有输入文件都将被解析为缩进语法，<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">use</a>引入过来的文件则按其原来方式处理。相反<code>--no-indented</code>，可以用来强制将所有输入文件解析为<a href="/api/Syntax/#scss">SCSS</a>。</p> <p><code>--indented</code>标记在输入为<a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)" target="_blank" rel="noopener noreferrer">标准输入<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>时非常有用，因此不能自动确定其语法。</p> <div class="language- extra-class"><pre class="language-text"><code>$ echo -e 'h1\n  font-size: 40px' | sass --indented -
+h1 {
+    font-size: 40px;
+}
+</code></pre></div><h4 id="load-path"><a href="#load-path" aria-hidden="true" class="header-anchor">#</a> --load-path</h4> <p>这个选项（缩写为<code>-I</code>）为Sass添加了一个额外的<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">加载路径</a>来查找样式表。它可以被多次传递以提供多个加载路径。较早的加载路径将优先于较晚的加载路径。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --load-path=node_modules/bootstrap/dist/css style.scss style.css
+</code></pre></div><h4 id="style"><a href="#style" aria-hidden="true" class="header-anchor">#</a> --style</h4> <p>此选项（缩写为<code>-s</code>）控制生成的CSS的输出样式。Dart Sass支持两种输出方式:</p> <ul><li><code>expanded</code> 将每个选择器和声明各自一行。</li> <li><code>compressed</code>删除尽可能多的额外字符，并将整个样式表写入一行。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>$ sass --style=expanded style.scss
+h1 {
+    font-size: 40px;
+}
+
+$ sass --style=compressed style.scss
+h1{font-size:40px}
+</code></pre></div><h4 id="no-charset"><a href="#no-charset" aria-hidden="true" class="header-anchor">#</a> --no-charset</h4> <blockquote><p>兼容性    Dart Sass <span class="badge tip" style="vertical-align:middle;" data-v-0f036736>1.19.0+</span></p></blockquote> <p>这个标志告诉Sass不要发出<code>@charset</code>声明或UTF-8<a href="https://en.wikipedia.org/wiki/Byte_order_mark#UTF-8" target="_blank" rel="noopener noreferrer">字节顺序标记<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。默认情况下，如果<code>--charset</code>被传递，如果样式表包含任何非ASCII字符，Sass将插入<code>@charset</code>声明（在扩展输出模式下）或字节顺序标记（在压缩输出模式下）。</p> <div class="language- extra-class"><pre class="language-text"><code>$ echo 'h1::before {content: &quot;👭&quot;}' | sass --no-charset
+h1::before {
+    content: &quot;👭&quot;;
+}
+
+$ echo 'h1::before {content: &quot;👭&quot;}' | sass --charset
+@charset &quot;UTF-8&quot;;
+h1::before {
+    content: &quot;👭&quot;;
+}
+</code></pre></div><h4 id="error-css"><a href="#error-css" aria-hidden="true" class="header-anchor">#</a> --error-css</h4> <blockquote><p>兼容性    Dart Sass <span class="badge tip" style="vertical-align:middle;" data-v-0f036736>1.20.0+</span></p></blockquote> <p>此标志告诉Sass在编译过程中出现错误时是否发出CSS文件。这个CSS文件在注释和<code>body::before</code>的内容属性中描述了错误，这样您就可以在浏览器中看到错误消息，而不需要切换回终端。</p> <p>默认情况下，如果您正在编译磁盘上的至少一个文件（与标准输出相反），则会启用错误输出。您可以显式地传递<code>--error-css</code>来启用它，在编译到标准输出时也是如此，或者传递<code>--no-error-css</code>来在任何地方禁用它。当它被禁用时，<code>--update</code>标志和<code>--watch</code>标志将在出现错误时删除CSS文件。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --error-css style.scss style.css
+/* Error: Incompatible units em and px.
+ *   ,
+ * 1 | $width: 15px + 2em;
+ *   |         ^^^^^^^^^^
+ *   '
+ *   test.scss 1:9  root stylesheet */
+
+body::before {
+  font-family: &quot;Source Code Pro&quot;, &quot;SF Mono&quot;, Monaco, Inconsolata, &quot;Fira Mono&quot;,
+      &quot;Droid Sans Mono&quot;, monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: &quot;Error: Incompatible units em and px.\a   \2577 \a 1 \2502  $width: 15px + 2em;\a   \2502          ^^^^^^^^^^\a   \2575 \a   test.scss 1:9  root stylesheet&quot;;         
+}
+Error: Incompatible units em and px.
+  ╷
+1 │ $width: 15px + 2em;
+  │         ^^^^^^^^^^
+  ╵
+  test.scss 1:9  root stylesheet
+</code></pre></div><h4 id="update"><a href="#update" aria-hidden="true" class="header-anchor">#</a> --update</h4> <blockquote><p>兼容性    Dart Sass <span class="badge tip" style="vertical-align:middle;" data-v-0f036736>1.4.0+</span></p></blockquote> <p>如果传递了<code>--update</code>标志，那么Sass将只编译那些最近修改了依赖关系的样式表，而不是生成相应的CSS文件。它还会在更新样式表时打印状态消息。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --update themes:public/css
+Compiled themes/light.scss to public/css/light.css.
+</code></pre></div><h3 id="source-maps"><a href="#source-maps" aria-hidden="true" class="header-anchor">#</a> Source Maps</h3> <blockquote><p>兼容性    Dart Sass <span class="badge tip" style="vertical-align:middle;" data-v-0f036736>1.3.0+</span></p></blockquote> <p>源映射是告诉浏览器或其他使用CSS的工具CSS如何与生成它的Sass文件相关联。它们使得在浏览器中查看甚至编辑Sass文件成为可能。参见在<a href="https://developers.google.com/web/tools/chrome-devtools/javascript/source-maps" target="_blank" rel="noopener noreferrer">Chrome<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>和<a href="https://developer.mozilla.org/en-US/docs/Tools/Style_Editor#Source_map_support" target="_blank" rel="noopener noreferrer">Firefox<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>中使用源映射的说明。</p> <p>Dart Sass默认生成源映射。</p> <h4 id="no-source-map"><a href="#no-source-map" aria-hidden="true" class="header-anchor">#</a> --no-source-map</h4> <p>如果传递了<code>--no-source-map</code>标志，Sass将不会生成任何源映射。它不能与其他源映射选项一起传递。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --no-source-map style.scss style.css
+</code></pre></div><h4 id="source-map-urls"><a href="#source-map-urls" aria-hidden="true" class="header-anchor">#</a> --source-map-urls</h4> <p>此选项控制Sass生成的源映射如何链接回生成CSS。Dart Sass支持两种类型的URLs：</p> <ul><li><code>relative</code>，默认值。使用从源映射文件位置到Sass源文件位置的相对URLs。</li> <li><code>absolute</code>,使用绝对<a href="https://en.wikipedia.org/wiki/File_URI_scheme" target="_blank" rel="noopener noreferrer">file: URLs<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>的Sass源文件。注意，绝对URLs只能在编译CSS的同一台计算机上工作。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>​# Generates a URL like &quot;../sass/style.scss&quot;.
+$ sass --source-map-urls=relative sass/style.scss css/style.css
+
+​# Generates a URL like &quot;file:///home/style-wiz/sassy-app/sass/style.scss&quot;.
+$ sass --source-map-urls=absolute sass/style.scss css/style.css
+</code></pre></div><h4 id="embed-sources"><a href="#embed-sources" aria-hidden="true" class="header-anchor">#</a> --embed-sources</h4> <p>此标志告诉Sass将生成CSS的Sass文件的全部内容嵌入到源映射中。这可能会生成非常大的源映射，但它保证了无论如何使用CSS，源都可以在任何计算机上使用。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --embed-sources sass/style.scss css.style.css
+</code></pre></div><h4 id="embed-source-map"><a href="#embed-source-map" aria-hidden="true" class="header-anchor">#</a> --embed-source-map</h4> <p>此标志告诉Sass将源映射文件的内容嵌入到生成的CSS中，而不是创建一个单独的文件并从CSS链接到它。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --embed-source-map sass/style.scss css.style.css
+</code></pre></div><h3 id="其它选项"><a href="#其它选项" aria-hidden="true" class="header-anchor">#</a> 其它选项</h3> <h4 id="watch"><a href="#watch" aria-hidden="true" class="header-anchor">#</a> --watch</h4> <blockquote><p>兼容性    Dart Sass <span class="badge tip" style="vertical-align:middle;" data-v-0f036736>1.6.0+</span></p></blockquote> <p>此标志的作用类似于<a href="#update">--update</a>标志，但在第一轮编译完成后，Sass将保持打开状态，并在样式表或其依赖项发生更改时继续编译它们。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --watch themes:public/css
+Compiled themes/light.scss to public/css/light.css.
+
+​# Then when you edit themes/dark.scss...
+Compiled themes/dark.scss to public/css/dark.css.
+</code></pre></div><h4 id="poll"><a href="#poll" aria-hidden="true" class="header-anchor">#</a> --poll</h4> <blockquote><p>兼容性    Dart Sass <span class="badge tip" style="vertical-align:middle;" data-v-0f036736>1.8.0+</span></p></blockquote> <p>此标志（可能只与<code>--watch</code>一起传递）告诉Sass每隔一段时间手动检查源文件的更改，而不是依赖于操作系统在发生更改时通知它。如果您在操作系统的通知系统无法工作的远程驱动器上编辑Sass，这可能是必要的。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --watch --poll themes:public/css
+Compiled themes/light.scss to public/css/light.css.
+
+​# Then when you edit themes/dark.scss...
+Compiled themes/dark.scss to public/css/dark.css.
+</code></pre></div><h4 id="top-on-error"><a href="#top-on-error" aria-hidden="true" class="header-anchor">#</a> --top-on-error</h4> <blockquote><p>兼容性    Dart Sass <span class="badge tip" style="vertical-align:middle;" data-v-0f036736>1.8.0+</span></p></blockquote> <p>此标志告诉Sass在检测到错误时立即停止编译，而不是尝试编译其他可能不包含错误的Sass文件。它在<a href="#%E5%A4%9A%E5%AF%B9%E5%A4%9A%E6%A8%A1%E5%BC%8F">多对多模式</a>下非常有用。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --stop-on-error themes:public/css
+Error: Expected expression.
+   ╷
+42 │ h1 {font-face: }
+   │                ^
+   ╵
+  themes/light.scss 42:16  root stylesheet
+</code></pre></div><h4 id="interactive"><a href="#interactive" aria-hidden="true" class="header-anchor">#</a> --interactive</h4> <blockquote><p>兼容性    Dart Sass <span class="badge tip" style="vertical-align:middle;" data-v-0f036736>1.5.0+</span></p></blockquote> <p>这个标志（缩写为<code>-i</code>）告诉Sass以交互模式运行，在交互模式中，您可以编写<a href="/api/Syntax/Structure.html#表达式">SassScript表达式</a>并查看它们的结果。交互模式还支持<a href="/api/Variables">变量</a>和<a href="%E5%BE%85%E7%A1%AE%E5%AE%9A">@use规则</a>。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --interactive
+&gt;&gt; 1px + 1in
+97px
+&gt;&gt; @use &quot;sass:map&quot;
+&gt;&gt; $map: (&quot;width&quot;: 100px, &quot;height&quot;: 70px)
+(&quot;width&quot;: 100px, &quot;height&quot;: 70px)
+&gt;&gt; map.get($map, &quot;width&quot;)
+100px
+</code></pre></div><h4 id="color"><a href="#color" aria-hidden="true" class="header-anchor">#</a> --color</h4> <p>这个标志（缩写为<code>-c</code>）告诉Sass发出<a href="https://en.wikipedia.org/wiki/ANSI_escape_code#Colors" target="_blank" rel="noopener noreferrer">终端颜色<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，而相反的<code>--no-color</code>告诉它不发出颜色。默认情况下，如果它看起来像是在支持它们的终端上运行，它就会发出颜色。</p> <pre data-v-37c09109><code data-v-37c09109>$ sass --color style.scss style.css
+Error: Incompatible units em and px.
+  <span class="_blue" data-v-37c09109>╷</span>
+<span class="_blue" data-v-37c09109>1 │</span> $width:  <span class="_red" data-v-37c09109>15px + 2em</span>
+  <span class="_blue" data-v-37c09109>│</span>          <span class="_red" data-v-37c09109>^^^^^^^^^^</span>
+  <span class="_blue" data-v-37c09109>╵</span>
+  style.scss 1:9  root stylesheet
+
+$ sass --no-color style.scss style.css
+Error: Incompatible units em and px.
+  ╷
+1 │ $width: 15px + 2em
+  │         ^^^^^^^^^^
+  ╵
+  style.scss 1:9  root stylesheet</code></pre> <h4 id="no-unicode"><a href="#no-unicode" aria-hidden="true" class="header-anchor">#</a> --no-unicode</h4> <blockquote><p>兼容性    Dart Sass <span class="badge tip" style="vertical-align:middle;" data-v-0f036736>1.17.0+</span></p></blockquote> <p>此标志告诉Sass仅将ASCII字符作为错误消息的一部分发送到终端。默认情况下，或者如果传递了<code>--unicode</code>， Sass将为这些消息发出非ASCII字符。此标记不影响CSS输出。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --no-unicode style.scss style.css
+Error: Incompatible units em and px.
+  ,
+1 | $width: 15px + 2em;
+  |         ^^^^^^^^^^
+  '
+  test.scss 1:9  root stylesheet
+
+$ sass --unicode style.scss style.css
+Error: Incompatible units em and px.
+  ╷
+1 │ $width: 15px + 2em;
+  │         ^^^^^^^^^^
+  ╵
+  test.scss 1:9  root stylesheet
+</code></pre></div><h4 id="quiet"><a href="#quiet" aria-hidden="true" class="header-anchor">#</a> --quiet</h4> <p>此标志（缩写为<code>-q</code>）告诉Sass在编译时不要发出任何警告。默认情况下，当使用过时的特性或遇到<a href="/api/AtRules/Warn">@warn规则</a>时，Sass发出警告。它还使<a href="/api/AtRules/Debug">@debug规则</a>静默。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --quiet style.scss style.css
+</code></pre></div><h4 id="trace"><a href="#trace" aria-hidden="true" class="header-anchor">#</a> --trace</h4> <p>此标志告诉Sass在遇到错误时打印完整Dart或JavaScript堆栈跟踪。Sass团队使用它来调试错误。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --trace style.scss style.css
+Error: Expected expression.
+   ╷
+42 │ h1 {font-face: }
+   │                ^
+   ╵
+  themes/light.scss 42:16  root stylesheet
+
+package:sass/src/visitor/evaluate.dart 1846:7                        _EvaluateVisitor._addExceptionSpan
+package:sass/src/visitor/evaluate.dart 1128:12                       _EvaluateVisitor.visitBinaryOperationExpression
+package:sass/src/ast/sass/expression/binary_operation.dart 39:15     BinaryOperationExpression.accept
+package:sass/src/visitor/evaluate.dart 1097:25                       _EvaluateVisitor.visitVariableDeclaration
+package:sass/src/ast/sass/statement/variable_declaration.dart 50:15  VariableDeclaration.accept
+package:sass/src/visitor/evaluate.dart 335:13                        _EvaluateVisitor.visitStylesheet
+package:sass/src/visitor/evaluate.dart 323:5                         _EvaluateVisitor.run
+package:sass/src/visitor/evaluate.dart 81:10                         evaluate
+package:sass/src/executable/compile_stylesheet.dart 59:9             compileStylesheet
+package:sass/src/executable.dart 62:15                               main
+</code></pre></div><h4 id="help"><a href="#help" aria-hidden="true" class="header-anchor">#</a> --help</h4> <p>此标记（缩写为<code>-h</code>）打印此文档的摘要。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --help
+Compile Sass to CSS.
+
+Usage: sass &lt;input.scss&gt; [output.css]
+       sass &lt;input.scss&gt;:&lt;output.css&gt; &lt;input/&gt;:&lt;output/&gt;
+
+...
+</code></pre></div><h4 id="version"><a href="#version" aria-hidden="true" class="header-anchor">#</a> --version</h4> <p>此标志打印Sassd当前的版本。</p> <div class="language- extra-class"><pre class="language-text"><code>$ sass --version
+1.23.7
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">2019-11-22 11:19:47 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/api/CommandLine/" class="prev router-link-active">
+          概述
+        </a></span> <span class="next"><a href="/api/CommandLine/Ruby.html">
+          Ruby Sass命令行界面
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.be7218e5.js" defer></script><script src="/assets/js/vendors~layout-layout.ad69256e.js" defer></script><script src="/assets/js/layout-layout.6d559a4d.js" defer></script><script src="/assets/js/page-api-commandline-dart.9b0e8cef.js" defer></script><script src="/assets/js/95.c540d740.js" defer></script><script src="/assets/js/99.25118691.js" defer></script><script src="/assets/js/101.8b3e49ec.js" defer></script>
+</body>
+
+</html>
